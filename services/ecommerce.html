@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн Магазини — Velshift | E-commerce Решения София</title>
+  <meta name="description" content="Изграждаме онлайн магазини, готови за продажби от първия ден. Платежни интеграции, управление на продукти и мобилен дизайн от Velshift София.">
+  <link rel="canonical" href="https://velshift.com/ecommerce.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Онлайн Магазини","provider":{"@type":"LocalBusiness","name":"Velshift","address":{"@type":"PostalAddress","addressLocality":"София","addressCountry":"BG"}},"description":"E-commerce решения — онлайн магазини с платежни интеграции, управление на продукти и инвентар.","areaServed":"София, България"}
+  </script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--c1:#FF5A57;--c2:#E02F75;--bg:#030918;--bg2:#08103F;--text-muted:#8090B8;--glass-border:rgba(255,90,87,0.08);--glass-bg:rgba(255,255,255,0.015)}
+    html{scrollbar-width:thin;scrollbar-color:var(--c1) var(--bg);scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+    .gradient-text{background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-bg{background:linear-gradient(135deg,var(--c1),var(--c2))}
+    .glass-card{background:rgba(255,255,255,0.015);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,90,87,0.08);border-radius:20px;position:relative;overflow:hidden;contain:layout style;transition:border-color .2s,background .2s,transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s}
+    .glass-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,90,87,0.03),transparent 50%);opacity:0;transition:opacity .5s;pointer-events:none}
+    .glass-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,90,87,0.06) 0%,transparent 50%);opacity:0;transition:opacity .4s;pointer-events:none}
+    .glass-card:hover{border-color:rgba(255,90,87,0.3);background:rgba(255,255,255,0.03);transform:translateY(-8px) scale(1.015);box-shadow:0 30px 80px rgba(255,90,87,0.06),0 0 1px rgba(255,90,87,0.3),inset 0 1px 0 rgba(255,255,255,0.04)}
+    .glass-card:hover::before{opacity:1}
+    .glass-card:hover::after{opacity:1}
+    .grad-line{height:1px;background:linear-gradient(90deg,transparent,var(--c1),var(--c2),transparent)}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(var(--c1),var(--c2));border-radius:3px}
+    ::selection{background:rgba(255,90,87,.3)}
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s,padding .4s;opacity:0}
+    #navbar.scrolled{background:rgba(3,9,24,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);box-shadow:0 1px 50px rgba(0,0,0,.5);padding:14px 40px}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:2px;cursor:pointer;text-decoration:none;color:#fff}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;cursor:pointer;position:relative;transition:color .15s}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transition:transform .18s cubic-bezier(.22,1,.36,1);transform-origin:left}
+    .nav-links a:hover{color:#fff}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-links a.nav-active{color:#fff}
+    .nav-links a.nav-active::after{transform:scaleX(1)}
+    .lang-switcher{display:flex;border:1px solid rgba(255,90,87,0.3);border-radius:50px;overflow:hidden;font-size:12px}
+    .lang-btn{padding:6px 14px;cursor:pointer;transition:background .3s,color .2s;background:transparent;border:none;color:var(--text-muted);font-weight:600;font-size:12px;letter-spacing:.05em}
+    .lang-btn.active{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff}
+    .lang-btn:hover:not(.active){color:#fff}
+    .btn-quote{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;transition:box-shadow .18s,transform .2s;position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-quote:hover{box-shadow:0 0 25px rgba(255,90,87,0.3);transform:scale(1.03)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .hamburger span{width:24px;height:2px;background:var(--c1);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mobile-menu{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(3,9,24,.97);backdrop-filter:blur(24px);padding:20px 28px 28px;border-top:1px solid rgba(255,90,87,.1);z-index:99;gap:2px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+    .mobile-menu.open{opacity:1;transform:translateY(0);pointer-events:all}
+    .mobile-menu a{color:var(--text-muted);padding:13px 0;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer}
+    .mobile-menu a:last-of-type{border:none}
+    .mobile-menu a:hover{color:#fff}
+    .mobile-menu .btn-quote{margin-top:14px;text-align:center}
+    @media(max-width:860px){#navbar{padding:16px 20px;gap:12px}.nav-links{display:none}.hamburger{display:flex}}
+    #cinematic-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+    #vignette{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.65) 100%)}
+    #radial-light{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 45%,rgba(255,90,87,0.08) 0%,transparent 55%)}
+    #energy-pulse{position:fixed;top:50%;left:50%;width:0;height:0;z-index:0;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 80px 40px rgba(255,90,87,0.15),0 0 200px 100px rgba(224,47,117,0.05);opacity:0}
+    #scene-progress{position:fixed;top:0;left:0;height:2px;z-index:101;background:linear-gradient(90deg,var(--c1),var(--c2));width:0%}
+    .btn-primary{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:box-shadow .18s,transform .2s;box-shadow:0 0 40px rgba(255,90,87,.25);position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .7s}
+    .btn-primary:hover{box-shadow:0 0 60px rgba(255,90,87,.5);transform:scale(1.04)}
+    .btn-primary:hover::before{left:100%}
+    .btn-outline{background:transparent;border:1px solid rgba(255,90,87,.35);color:#fff;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,border-color .18s,box-shadow .18s,transform .2s;text-decoration:none;display:inline-block}
+    .btn-outline:hover{background:rgba(255,90,87,.08);border-color:rgba(255,90,87,.6);box-shadow:0 0 30px rgba(255,90,87,.12);transform:scale(1.04)}
+    .btn-cta{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:20px 52px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 0 50px rgba(255,90,87,.3),0 0 100px rgba(224,47,117,.1);transition:box-shadow .18s,transform .2s;position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .7s}
+    .btn-cta:hover{transform:scale(1.04);box-shadow:0 0 70px rgba(255,90,87,.5),0 0 140px rgba(224,47,117,.2)}
+    .btn-cta:hover::before{left:100%}
+    .section-header{text-align:center;margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:700;margin-bottom:14px}
+    .section-header p{color:var(--text-muted);font-size:15px;max-width:480px;margin:0 auto}
+    .reveal{opacity:0;transform:translateY(50px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal-left.visible{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(60px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal-right.visible{opacity:1;transform:translateX(0)}
+    .stagger-1{transition-delay:.06s}.stagger-2{transition-delay:.12s}.stagger-3{transition-delay:.18s}.stagger-4{transition-delay:.24s}.stagger-5{transition-delay:.3s}.stagger-6{transition-delay:.36s}.stagger-7{transition-delay:.42s}
+    [data-t]{transition:opacity .25s}
+    .subpage-hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;z-index:1}
+    .subpage-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 30%,rgba(255,90,87,0.06) 0%,transparent 60%)}
+    .subpage-hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,80px);font-weight:700;line-height:1.1;margin-bottom:20px}
+    .subpage-hero .hero-sub{color:var(--text-muted);font-size:17px;max-width:580px;line-height:1.7;margin-bottom:36px}
+    .subpage-hero .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);margin-bottom:24px;justify-content:center}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color .15s}
+    .breadcrumb a:hover{color:#fff}
+    .breadcrumb .sep{opacity:.4}
+    .subpage-hero .breadcrumb,.subpage-hero h1,.subpage-hero .hero-sub,.subpage-hero .hero-btns{opacity:0;filter:blur(8px);transform:translateY(30px)}
+    .deliverables-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .deliverable-card{padding:32px}
+    .card-icon{width:40px;height:40px;margin-bottom:18px;display:block}
+    .deliverable-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:10px}
+    .deliverable-card p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    @media(max-width:860px){.deliverables-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:540px){.deliverables-grid{grid-template-columns:1fr}}
+    .process-section{padding:100px 40px}
+    .process-wrap{max-width:840px;margin:0 auto;position:relative}
+    .timeline-line{position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--c1),var(--c2))}
+    @media(min-width:769px){.timeline-line{left:50%}}
+    .process-step{display:flex;margin-bottom:56px;position:relative}
+    .process-step:last-child{margin-bottom:0}
+    .step-dot{position:absolute;left:28px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;z-index:2;box-shadow:0 0 30px rgba(255,90,87,0.2)}
+    .step-content{margin-left:72px;flex:1}
+    @media(min-width:769px){.process-step{align-items:center}.process-step:nth-child(odd){flex-direction:row;justify-content:flex-end}.process-step:nth-child(even){flex-direction:row-reverse}.step-dot{left:50%;transform:translateX(-50%)}.process-step:nth-child(odd) .step-content{margin-left:0;margin-right:68px;text-align:right;max-width:46%}.process-step:nth-child(even) .step-content{margin-left:68px;margin-right:0;max-width:46%}}
+    .step-content{max-width:340px}
+    .step-box{padding:24px}
+    .step-box h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:8px}
+    .step-box p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    @media(max-width:768px){.process-section{padding:70px 20px}}
+    .pricing-section{padding:100px 40px}
+    .pricing-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .pricing-card{padding:36px;display:flex;flex-direction:column}
+    .pricing-card.featured{border-color:rgba(255,90,87,0.4);background:rgba(255,90,87,0.04);box-shadow:0 0 60px rgba(255,90,87,0.08)}
+    .pricing-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;margin-bottom:16px;align-self:flex-start}
+    .pricing-card h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:8px}
+    .pricing-price{font-size:36px;font-weight:700;margin-bottom:6px}
+    .pricing-desc{color:var(--text-muted);font-size:14px;margin-bottom:24px;line-height:1.6}
+    .pricing-features{list-style:none;margin-bottom:28px;flex:1}
+    .pricing-features li{color:var(--text-muted);font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:10px}
+    .pricing-features li::before{content:'';width:18px;height:18px;flex-shrink:0;margin-top:1px;background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:50%}
+    .pricing-card .btn-primary,.pricing-card .btn-outline{width:100%;text-align:center}
+    .faq-section{padding:100px 40px}
+    .faq-list{max-width:740px;margin:0 auto}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+    .faq-q{width:100%;background:none;border:none;color:#fff;font-size:16px;font-weight:600;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;transition:color .2s}
+    .faq-q:hover{color:var(--c1)}
+    .faq-q .faq-icon{width:24px;height:24px;flex-shrink:0;transition:transform .3s;color:var(--c1)}
+    .faq-item.open .faq-q .faq-icon{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0}
+    .faq-item.open .faq-a{max-height:300px;padding:0 0 22px}
+    .faq-a p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    .cta-section{padding:120px 40px;position:relative;overflow:hidden;text-align:center}
+    .cta-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+    .cta-content h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,60px);font-weight:700;line-height:1.2;margin-bottom:18px}
+    .cta-content p{color:var(--text-muted);font-size:17px;margin-bottom:40px}
+    @media(max-width:768px){.cta-section{padding:80px 20px}}
+    #footer{padding:60px 40px 30px;position:relative;z-index:1}
+    .footer-top{max-width:1100px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:10px;cursor:pointer;text-decoration:none}
+    .footer-tagline{color:var(--text-muted);font-size:14px;line-height:1.7}
+    .footer-col h4{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul li a{color:var(--text-muted);font-size:14px;text-decoration:none;cursor:pointer;transition:color .2s}
+    .footer-col ul li a:hover{color:#fff}
+    .contact-item{color:var(--text-muted);font-size:14px;margin-bottom:8px}
+    .socials{display:flex;gap:16px;margin-top:20px}
+    .socials a{color:var(--text-muted);transition:color .2s;cursor:pointer;text-decoration:none}
+    .socials a:hover{color:#fff}
+    .footer-bottom{max-width:1100px;margin:0 auto;text-align:center;padding-top:24px}
+    .footer-bottom p{color:var(--text-muted);font-size:12px}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}#footer{padding:48px 20px 24px}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+    .modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+    .modal-overlay.open{opacity:1;pointer-events:auto}
+    .modal-box{background:rgba(8,16,63,0.96);border:1px solid rgba(255,90,87,0.2);border-radius:20px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateY(30px) scale(0.97);transition:transform 0.4s cubic-bezier(.22,1,.36,1)}
+    .modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+    .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text-muted);font-size:28px;cursor:pointer;line-height:1;transition:color .2s}
+    .modal-close:hover{color:#fff}
+    .modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:28px;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .field-group{margin-bottom:18px}
+    .field-group label{display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:6px}
+    .field-group input,.field-group select,.field-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,90,87,0.15);border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;box-sizing:border-box}
+    .field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:rgba(255,90,87,0.5)}
+    .field-group select option{background:#08103F}
+    .field-group textarea{resize:vertical}
+    .field-group input::placeholder,.field-group textarea::placeholder{color:var(--text-muted)}
+    .btn-submit{width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:16px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:box-shadow .3s,opacity .3s;margin-top:8px}
+    .btn-submit:hover{box-shadow:0 0 40px rgba(255,90,87,0.4)}
+    .btn-submit:disabled{opacity:.6;cursor:not-allowed}
+    .form-error{color:#ff6b6b;font-size:13px;margin-bottom:12px}
+    .form-success{text-align:center;padding:20px 0}
+    .success-icon{font-size:48px;color:#4caf50;margin-bottom:16px}
+    .form-success p{color:var(--text-muted);font-size:15px;line-height:1.7}
+    #viber-float{display:none;position:fixed;bottom:84px;right:20px;z-index:500;width:58px;height:58px;border-radius:50%;background:#7360F2;box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 0 rgba(115,96,242,0.4);align-items:center;justify-content:center;text-decoration:none;animation:viberPulse 2.4s infinite}
+    #viber-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(115,96,242,0.75);animation:none}
+    @keyframes viberPulse{0%,100%{box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 0 rgba(115,96,242,0.35)}60%{box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 14px rgba(115,96,242,0)}}
+    @media(max-width:860px){#viber-float{display:flex}body{padding-bottom:52px}}
+    .mobile-call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:499;height:52px;background:linear-gradient(135deg,var(--c1),var(--c2));text-decoration:none;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:14px;font-weight:700}
+    @media(max-width:860px){.mobile-call-bar{display:flex}}
+    .star-field-hero{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+    @keyframes twinkle{from{opacity:var(--star-opacity,0.6)}to{opacity:0.05}}
+    @media(max-width:480px){.subpage-hero .hero-btns{flex-direction:column;align-items:center}.step-content{margin-left:56px}.step-dot{width:38px;height:38px;font-size:11px}.modal-box{padding:24px 18px}}
+  </style>
+</head>
+<body>
+  <canvas id="cinematic-canvas"></canvas>
+  <div id="vignette"></div>
+  <div id="radial-light"></div>
+  <div id="energy-pulse"></div>
+  <div id="scene-progress"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo gradient-text">VELSHIFT</a>
+    <div class="nav-links">
+      <a href="../index.html" data-t="nav-home">Начало</a>
+      <a href="../index.html#services" class="nav-active" data-t="nav-services">Услуги</a>
+      <a href="../portfolio.html" data-t="nav-portfolio">Портфолио</a>
+      <a href="../about.html">За нас</a>
+      <a href="../pricing.html">Цени</a>
+      <button class="btn-quote" onclick="openModal()" data-t="nav-quote">Запитване</button>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-bg" onclick="setLang('bg')">БГ</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../index.html" onclick="closeMenu()" data-t="nav-home">Начало</a>
+    <a href="../index.html#services" onclick="closeMenu()" data-t="nav-services">Услуги</a>
+    <a href="../portfolio.html" onclick="closeMenu()" data-t="nav-portfolio">Портфолио</a>
+    <a href="../about.html" onclick="closeMenu()">За нас</a>
+    <a href="../pricing.html" onclick="closeMenu()">Цени</a>
+    <div class="lang-switcher" style="margin-top:10px;align-self:flex-start">
+      <button class="lang-btn active" id="btn-bg-m" onclick="setLang('bg')">БГ</button>
+      <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="btn-quote" style="margin-top:8px" onclick="closeMenu();openModal()" data-t="nav-quote">Запитване</button>
+  </div>
+
+  <section class="subpage-hero">
+    <div class="breadcrumb">
+      <a href="../index.html" data-t="nav-home">Начало</a><span class="sep">→</span>
+      <a href="../index.html#services" data-t="nav-services">Услуги</a><span class="sep">→</span>
+      <span class="gradient-text" data-t="page-name">Онлайн Магазини</span>
+    </div>
+    <h1 data-t="hero-h1">Онлайн<br><span class="gradient-text">Магазини</span></h1>
+    <p class="hero-sub" data-t="hero-sub">Изграждаме e-commerce решения, готови за продажби от първия ден. Плащания, инвентар, доставки — всичко работи безупречно, за да продаваш 24/7.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openModal()" data-t="hero-btn1">Започни Проект</button>
+      <a href="#pricing" class="btn-outline" data-t="hero-btn2">Виж Пакети</a>
+    </div>
+  </section>
+
+  <section style="padding:100px 40px;position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="del-title">Какво <span class="gradient-text">Получаваш</span></h2>
+      <p class="reveal stagger-1" data-t="del-sub">Пълна e-commerce платформа, готова за продажби.</p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="glass-card deliverable-card reveal stagger-1">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF5A57"/><stop offset="100%" stop-color="#E02F75"/></linearGradient></defs><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"/></svg>
+        <h3 data-t="d1-title">Продуктов Каталог</h3>
+        <p data-t="d1-p">Красиво представяне на продуктите с категории, филтри, търсене и сортиране. Клиентът намира каквото търси за секунди — не за минути.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-2">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <h3 data-t="d2-title">Платежни Интеграции</h3>
+        <p data-t="d2-p">Stripe, PayPal, наложен платеж, банков превод — интегрираме всички методи, популярни в България. Сигурни плащания с SSL криптиране.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-3">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01" stroke-width="2"/></svg>
+        <h3 data-t="d3-title">Mobile-First Дизайн</h3>
+        <p data-t="d3-p">Над 65% от онлайн покупките в България са от телефон. Магазинът ти е оптимизиран за мобилно пазаруване — бързо, удобно и интуитивно.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-4">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <h3 data-t="d4-title">Управление на Инвентар</h3>
+        <p data-t="d4-p">Следи наличности в реално време, получавай нотификации при ниски количества и управлявай варианти (размери, цветове) от един панел.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-5">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        <h3 data-t="d5-title">Клиентски Акаунти</h3>
+        <p data-t="d5-p">Регистрация, история на поръчки, списък с желания и запазени адреси. Връщащите се клиенти пазаруват по-бързо и харчат повече.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-6">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        <h3 data-t="d6-title">Промоции &amp; Отстъпки</h3>
+        <p data-t="d6-p">Промо кодове, сезонни отстъпки, bundle оферти, безплатна доставка над определена сума — всички инструменти за повече продажби.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-7">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <h3 data-t="d7-title">SEO за Продукти</h3>
+        <p data-t="d7-p">Оптимизирани мета тагове, schema markup за продукти, бързо зареждане и чисти URL-и. Продуктите ти се появяват в Google Shopping и органично търсене.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <h3 data-t="d8-title">Dashboard &amp; Анализи</h3>
+        <p data-t="d8-p">Ясен админ панел с продажби, конверсии, най-продавани продукти и клиентско поведение. Знаеш какво работи и къде да инвестираш.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <section class="process-section" id="process" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="proc-title">Как Изграждаме<br><span class="gradient-text">Онлайн Магазин</span></h2>
+    </div>
+    <div class="process-wrap">
+      <div class="timeline-line"></div>
+      <div class="process-step reveal">
+        <div class="step-dot">01</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s1-title">Анализ на Продуктите</h3>
+          <p data-t="s1-p">Разбираме какво продаваш, колко SKU имаш, какви варианти и категории. Дефинираме структурата на каталога и потребителското изживяване.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-1">
+        <div class="step-dot">02</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s2-title">Дизайн на Магазина</h3>
+          <p data-t="s2-p">Създаваме визуален дизайн, фокусиран върху продажби — ясна навигация, изтъкнати промоции, бърз checkout и мобилно изживяване.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-2">
+        <div class="step-dot">03</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s3-title">Разработка &amp; Интеграции</h3>
+          <p data-t="s3-p">Кодираме магазина и свързваме платежни системи, доставки (Еконт, Спиди), имейл нотификации и инвентарен мениджмънт.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-3">
+        <div class="step-dot">04</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s4-title">Продуктово Зареждане</h3>
+          <p data-t="s4-p">Помагаме ти да заредиш първите продукти — снимки, описания, цени, варианти. Обучаваме те да управляваш каталога сам.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-4">
+        <div class="step-dot">05</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s5-title">Старт &amp; Първи Продажби</h3>
+          <p data-t="s5-p">Тестваме целия процес на покупка, пускаме магазина и следим първите поръчки. 30 дни безплатна поддръжка след старта.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <section class="pricing-section" id="pricing" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="price-title">Избери <span class="gradient-text">Пакет</span></h2>
+      <p class="reveal stagger-1" data-t="price-sub">Три нива, съобразени с различни нужди и бюджети.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="glass-card pricing-card reveal">
+        <h3 data-t="p1-name">Starter</h3>
+        <div class="pricing-price gradient-text" data-t="p1-price">600€</div>
+        <p class="pricing-desc" data-t="p1-desc">За стартиращи онлайн магазини.</p>
+        <ul class="pricing-features">
+          <li data-t="p1-f1">До 50 продукта</li>
+          <li data-t="p1-f2">Платежен gateway (Stripe/PayPal)</li>
+          <li data-t="p1-f3">Мобилно адаптивен дизайн</li>
+          <li data-t="p1-f4">Базово SEO за продукти</li>
+          <li data-t="p1-f5">Имейл нотификации за поръчки</li>
+          <li data-t="p1-f6">Срок: 14-18 дни</li>
+        </ul>
+        <button class="btn-outline" onclick="openModal()" data-t="p1-btn">Избери Starter</button>
+      </div>
+      <div class="glass-card pricing-card featured reveal stagger-1">
+        <span class="pricing-badge" data-t="badge-popular">Най-популярен</span>
+        <h3 data-t="p2-name">Pro</h3>
+        <div class="pricing-price gradient-text" data-t="p2-price">1000€</div>
+        <p class="pricing-desc" data-t="p2-desc">Пълноценен магазин с всички функции.</p>
+        <ul class="pricing-features">
+          <li data-t="p2-f1">До 200 продукта</li>
+          <li data-t="p2-f2">Управление на инвентар</li>
+          <li data-t="p2-f3">Система за отстъпки и промоции</li>
+          <li data-t="p2-f4">Клиентски акаунти</li>
+          <li data-t="p2-f5">Интеграция с куриери (Еконт/Спиди)</li>
+          <li data-t="p2-f6">Срок: 18-25 дни</li>
+        </ul>
+        <button class="btn-primary" onclick="openModal()" data-t="p2-btn">Избери Pro</button>
+      </div>
+      <div class="glass-card pricing-card reveal stagger-2">
+        <h3 data-t="p3-name">Premium</h3>
+        <div class="pricing-price gradient-text" data-t="p3-price">1800€+</div>
+        <p class="pricing-desc" data-t="p3-desc">Enterprise решение без ограничения.</p>
+        <ul class="pricing-features">
+          <li data-t="p3-f1">Неограничен брой продукти</li>
+          <li data-t="p3-f2">Custom checkout процес</li>
+          <li data-t="p3-f3">Многоезична поддръжка</li>
+          <li data-t="p3-f4">Разширена аналитика</li>
+          <li data-t="p3-f5">Приоритетна поддръжка</li>
+          <li data-t="p3-f6">Срок: по договаряне</li>
+        </ul>
+        <button class="btn-outline" onclick="openModal()" data-t="p3-btn">Избери Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <section class="faq-section" id="faq" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="faq-title">Често Задавани <span class="gradient-text">Въпроси</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" data-t="faq-q1">Каква платформа използвате за магазина?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a1">Зависи от нуждите — за по-малки магазини използваме Snipcart или Shopify, за по-сложни — custom решение с Next.js + headless CMS. Винаги избираме най-доброто за конкретния случай.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-1">
+        <button class="faq-q" data-t="faq-q2">Мога ли да добавям продукти сам?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a2">Да, разбира се. Всички магазини идват с удобен админ панел, от който добавяш, редактираш и управляваш продукти без технически знания. Правим и обучение.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-2">
+        <button class="faq-q" data-t="faq-q3">Поддържате ли наложен платеж?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a3">Да! Наложеният платеж е най-популярният метод в България. Интегрираме го заедно с Еконт и Спиди, за да получаваш парите си директно при доставка.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-3">
+        <button class="faq-q" data-t="faq-q4">Колко продукта мога да имам?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a4">При Starter — до 50, при Pro — до 200, при Premium — без ограничение. Ако бизнесът ти расте, лесно надграждаме каталога без да се налага преработка.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-4">
+        <button class="faq-q" data-t="faq-q5">Има ли месечни такси?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a5">Зависи от платформата — Shopify има месечен абонамент (~29$/мес), custom решенията имат само хостинг такса (~5-20$/мес). При нас няма скрити месечни такси за разработката.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-5">
+        <button class="faq-q" data-t="faq-q6">Мога ли да продавам в чужбина?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a6">Да! При Premium пакета настройваме многоезичен магазин с различни валути и международни доставки. Продавай в България, Европа или по целия свят.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="position:relative;z-index:1">
+    <div class="grad-line" style="max-width:700px;margin:0 auto 60px"></div>
+    <div class="cta-content">
+      <h2 class="reveal" data-t="cta-h2">Продавай онлайн<br><span class="gradient-text">от утре</span></h2>
+      <p class="reveal stagger-1" data-t="cta-p">Докато чакаш, конкурентите ти вече продават. Стартирай своя магазин сега.</p>
+      <div class="reveal stagger-2"><button class="btn-cta" onclick="openModal()" data-t="cta-btn">Създай Магазин</button></div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="grad-line" style="margin-bottom:56px"></div>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-logo gradient-text">VELSHIFT</a>
+          <p class="footer-tagline" data-t="foot-tag">Ние не правим сайтове.<br>Ние изграждаме растеж.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-srv-h">Услуги</h4>
+          <ul>
+            <li><a href="web-design.html">Уеб Дизайн &amp; UI/UX</a></li>
+            <li><a href="landing-pages.html">Лендинг Страници</a></li>
+            <li><a href="ecommerce.html">Онлайн Магазини</a></li>
+            <li><a href="digital-ads.html">Дигитална Реклама</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-nav-h">Навигация</h4>
+          <ul>
+            <li><a href="../index.html">Начало</a></li>
+            <li><a href="../portfolio.html">Портфолио</a></li>
+            <li><a href="../about.html">За нас</a></li>
+            <li><a href="../contact.html">Контакт</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-con-h">Контакт</h4>
+          <p class="contact-item">hello@velshift.com</p>
+          <p class="contact-item">+359 877 602 204</p>
+          <p class="contact-item" data-t="foot-city">София, България</p>
+          <div class="socials">
+            <a href="javascript:void(0)" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="javascript:void(0)" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="javascript:void(0)" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="grad-line"></div>
+      <div class="footer-bottom" style="padding-top:20px"><p data-t="copyright">&copy; 2026 Velshift. Всички права запазени.</p></div>
+    </div>
+  </footer>
+
+  <div id="contact-modal" class="modal-overlay" onclick="handleModalOverlayClick(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Затвори">&times;</button>
+      <h2 class="modal-title">Запитване / Inquiry</h2>
+      <form id="modalForm">
+        <div id="form-fields">
+          <div class="field-group"><label>Име / Name *</label><input type="text" name="name" required placeholder="Вашето име / Your name"></div>
+          <div class="field-group"><label>Имейл / Email *</label><input type="email" name="email" required placeholder="you@example.com"></div>
+          <div class="field-group"><label>Телефон / Phone</label><input type="tel" name="phone" placeholder="+359 88 ..."></div>
+          <div class="field-group"><label>Услуга / Service *</label>
+            <select name="service" required>
+              <option value="">-- Избери / Select --</option>
+              <option>Уеб Дизайн &amp; UI/UX</option>
+              <option>Лендинг Страница</option>
+              <option selected>Онлайн Магазин</option>
+              <option>Дигитална Реклама</option>
+              <option>Не съм сигурен / Not sure</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Бюджет / Budget</label>
+            <select name="budget">
+              <option value="">-- Избери / Select --</option>
+              <option>До 300€</option>
+              <option>300€ – 600€</option>
+              <option>600€ – 1000€</option>
+              <option>1000€+</option>
+              <option>Ще обсъдим / Let's discuss</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Описание / Description</label><textarea name="description" style="min-height:90px" placeholder="Разкажи ни за проекта си / Tell us about your project"></textarea></div>
+          <div id="form-error" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn-submit" id="btn-submit">Изпрати Запитване / Send Inquiry</button>
+        </div>
+        <div id="form-success" class="form-success" style="display:none">
+          <div class="success-icon">✓</div>
+          <p>Получихме запитването ти! Ще се свържем до 48 часа.<br>We received your inquiry! We'll be in touch within 48 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <a id="viber-float" href="viber://chat?number=%2B359877602204" aria-label="Viber">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M24.3 4.2c-4.5.1-14.6 1.4-17.8 7.7C4.4 15.5 4 20.1 4 24.8c0 4.7.4 9.3 2.5 12.9v6.6c0 .7.5 1.1 1 1.1.2 0 .4-.1.6-.2l5.5-3.3c1.8.5 3.8.8 5.9.9h.5c8.7 0 17.6-4.7 19.5-14.2.5-2.4.5-4.9.3-7.4C38.8 10.4 31.6 4.5 24.3 4.2z"/><path d="M33.6 28.2c-.2-.4-1.4-.8-1.4-.8s-3.3-1.5-4.3-2c-.4-.2-.8-.2-1.1.2-.6.8-1.3 1.7-1.7 2.1-.3.3-.6.3-1 .1-2.3-1-4.2-2.5-5.7-4.4-.4-.5-.3-.8.1-1.2.4-.3.8-.8 1.1-1.2.3-.4.2-.8 0-1.1-.3-.6-1.5-3.6-1.9-4.6-.3-.7-.7-.7-1-.7h-.9c-.4 0-1 .1-1.5.7-.6.6-2 2-2 4.7s2 5.5 2.3 5.8c.3.4 4 6.5 9.9 8.8 3.6 1.4 5 1.1 5.9.9 1.3-.3 3-1.3 3.4-2.6.4-1.3.4-2.3.3-2.6z" fill="#7360F2"/><path d="M29.4 13.4c-1.5-.8-3.2-1.3-5-1.4-.4 0-.7.3-.7.7s.3.7.7.7c1.5.1 3 .5 4.3 1.2 2.1 1.1 3.6 2.9 4.3 5.1.3.9.4 1.9.4 2.9 0 .4.3.7.7.7s.7-.3.7-.7c0-1.1-.2-2.3-.5-3.4-.9-2.5-2.7-4.7-4.9-5.8z" fill="#7360F2"/><path d="M27.8 16.4c-1-.5-2.2-.8-3.4-.9-.4 0-.7.3-.7.7s.3.7.7.7c1 .1 2 .3 2.8.7 1.3.7 2.2 1.8 2.6 3.2.2.5.2 1.1.2 1.7 0 .4.3.7.7.7s.7-.3.7-.7c0-.8-.1-1.5-.3-2.2-.6-1.8-1.8-3.2-3.3-3.9z" fill="#7360F2"/><path d="M26.2 19.5c-.6-.3-1.3-.5-2-.5-.4 0-.7.3-.7.7s.3.7.7.7c.5 0 1 .1 1.4.4.6.3 1 .8 1.2 1.5.1.3.1.5.1.8 0 .4.3.7.7.7s.7-.3.7-.7c0-.5-.1-.9-.2-1.3-.3-1-.9-1.8-1.9-2.3z" fill="#7360F2"/></svg>
+  </a>
+
+  <a class="mobile-call-bar" href="tel:+359877602204">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+    Обадете се сега — +359 877 602 204
+  </a>
+
+  <script>
+    const SUPABASE_URL = 'https://pwcligmumjaufmrwhnch.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2xpZ211bWphdWZtcndobmNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1Mjg5MjUsImV4cCI6MjA5NDEwNDkyNX0.0qdLQplSoBqjR2hWXGIn_fXQ5taw2pa6ctqobObC3-I';
+    let _sb = null;
+    function getSB() { if (!_sb) { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'; document.head.appendChild(s); return new Promise(r => s.onload = () => { _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); r(_sb) }) } return Promise.resolve(_sb); }
+
+    const translations = {
+      bg: {
+        'nav-home':'Начало','nav-services':'Услуги','nav-portfolio':'Портфолио','nav-contact':'Контакт','nav-quote':'Запитване',
+        'page-name':'Онлайн Магазини',
+        'hero-h1':'Онлайн<br><span class="gradient-text">Магазини</span>',
+        'hero-sub':'Изграждаме e-commerce решения, готови за продажби от първия ден. Плащания, инвентар, доставки — всичко работи безупречно, за да продаваш 24/7.',
+        'hero-btn1':'Започни Проект','hero-btn2':'Виж Пакети',
+        'del-title':'Какво <span class="gradient-text">Получаваш</span>','del-sub':'Пълна e-commerce платформа, готова за продажби.',
+        'd1-title':'Продуктов Каталог','d1-p':'Красиво представяне на продуктите с категории, филтри, търсене и сортиране. Клиентът намира каквото търси за секунди — не за минути.',
+        'd2-title':'Платежни Интеграции','d2-p':'Stripe, PayPal, наложен платеж, банков превод — интегрираме всички методи, популярни в България. Сигурни плащания с SSL криптиране.',
+        'd3-title':'Mobile-First Дизайн','d3-p':'Над 65% от онлайн покупките в България са от телефон. Магазинът ти е оптимизиран за мобилно пазаруване — бързо, удобно и интуитивно.',
+        'd4-title':'Управление на Инвентар','d4-p':'Следи наличности в реално време, получавай нотификации при ниски количества и управлявай варианти (размери, цветове) от един панел.',
+        'd5-title':'Клиентски Акаунти','d5-p':'Регистрация, история на поръчки, списък с желания и запазени адреси. Връщащите се клиенти пазаруват по-бързо и харчат повече.',
+        'd6-title':'Промоции & Отстъпки','d6-p':'Промо кодове, сезонни отстъпки, bundle оферти, безплатна доставка над определена сума — всички инструменти за повече продажби.',
+        'd7-title':'SEO за Продукти','d7-p':'Оптимизирани мета тагове, schema markup за продукти, бързо зареждане и чисти URL-и. Продуктите ти се появяват в Google Shopping и органично търсене.',
+        'd8-title':'Dashboard & Анализи','d8-p':'Ясен админ панел с продажби, конверсии, най-продавани продукти и клиентско поведение. Знаеш какво работи и къде да инвестираш.',
+        'proc-title':'Как Изграждаме<br><span class="gradient-text">Онлайн Магазин</span>',
+        's1-title':'Анализ на Продуктите','s1-p':'Разбираме какво продаваш, колко SKU имаш, какви варианти и категории. Дефинираме структурата на каталога и потребителското изживяване.',
+        's2-title':'Дизайн на Магазина','s2-p':'Създаваме визуален дизайн, фокусиран върху продажби — ясна навигация, изтъкнати промоции, бърз checkout и мобилно изживяване.',
+        's3-title':'Разработка & Интеграции','s3-p':'Кодираме магазина и свързваме платежни системи, доставки (Еконт, Спиди), имейл нотификации и инвентарен мениджмънт.',
+        's4-title':'Продуктово Зареждане','s4-p':'Помагаме ти да заредиш първите продукти — снимки, описания, цени, варианти. Обучаваме те да управляваш каталога сам.',
+        's5-title':'Старт & Първи Продажби','s5-p':'Тестваме целия процес на покупка, пускаме магазина и следим първите поръчки. 30 дни безплатна поддръжка след старта.',
+        'price-title':'Избери <span class="gradient-text">Пакет</span>','price-sub':'Три нива, съобразени с различни нужди и бюджети.',
+        'badge-popular':'Най-популярен',
+        'p1-name':'Starter','p1-price':'600€','p1-desc':'За стартиращи онлайн магазини.','p1-f1':'До 50 продукта','p1-f2':'Платежен gateway (Stripe/PayPal)','p1-f3':'Мобилно адаптивен дизайн','p1-f4':'Базово SEO за продукти','p1-f5':'Имейл нотификации за поръчки','p1-f6':'Срок: 14-18 дни','p1-btn':'Избери Starter',
+        'p2-name':'Pro','p2-price':'1000€','p2-desc':'Пълноценен магазин с всички функции.','p2-f1':'До 200 продукта','p2-f2':'Управление на инвентар','p2-f3':'Система за отстъпки и промоции','p2-f4':'Клиентски акаунти','p2-f5':'Интеграция с куриери (Еконт/Спиди)','p2-f6':'Срок: 18-25 дни','p2-btn':'Избери Pro',
+        'p3-name':'Premium','p3-price':'1800€+','p3-desc':'Enterprise решение без ограничения.','p3-f1':'Неограничен брой продукти','p3-f2':'Custom checkout процес','p3-f3':'Многоезична поддръжка','p3-f4':'Разширена аналитика','p3-f5':'Приоритетна поддръжка','p3-f6':'Срок: по договаряне','p3-btn':'Избери Premium',
+        'faq-title':'Често Задавани <span class="gradient-text">Въпроси</span>',
+        'faq-q1':'Каква платформа използвате за магазина?','faq-a1':'Зависи от нуждите — за по-малки магазини използваме Snipcart или Shopify, за по-сложни — custom решение с Next.js + headless CMS. Винаги избираме най-доброто за конкретния случай.',
+        'faq-q2':'Мога ли да добавям продукти сам?','faq-a2':'Да, разбира се. Всички магазини идват с удобен админ панел, от който добавяш, редактираш и управляваш продукти без технически знания. Правим и обучение.',
+        'faq-q3':'Поддържате ли наложен платеж?','faq-a3':'Да! Наложеният платеж е най-популярният метод в България. Интегрираме го заедно с Еконт и Спиди, за да получаваш парите си директно при доставка.',
+        'faq-q4':'Колко продукта мога да имам?','faq-a4':'При Starter — до 50, при Pro — до 200, при Premium — без ограничение. Ако бизнесът ти расте, лесно надграждаме каталога без да се налага преработка.',
+        'faq-q5':'Има ли месечни такси?','faq-a5':'Зависи от платформата — Shopify има месечен абонамент (~29$/мес), custom решенията имат само хостинг такса (~5-20$/мес). При нас няма скрити месечни такси за разработката.',
+        'faq-q6':'Мога ли да продавам в чужбина?','faq-a6':'Да! При Premium пакета настройваме многоезичен магазин с различни валути и международни доставки. Продавай в България, Европа или по целия свят.',
+        'cta-h2':'Продавай онлайн<br><span class="gradient-text">от утре</span>',
+        'cta-p':'Докато чакаш, конкурентите ти вече продават. Стартирай своя магазин сега.','cta-btn':'Създай Магазин',
+        'foot-tag':'Ние не правим сайтове.<br>Ние изграждаме растеж.','foot-srv-h':'Услуги','foot-nav-h':'Навигация','foot-con-h':'Контакт','foot-city':'София, България','copyright':'© 2026 Velshift. Всички права запазени.'
+      },
+      en: {
+        'nav-home':'Home','nav-services':'Services','nav-portfolio':'Portfolio','nav-contact':'Contact','nav-quote':'Get a Quote',
+        'page-name':'Online Stores',
+        'hero-h1':'Online<br><span class="gradient-text">Stores</span>',
+        'hero-sub':'We build e-commerce solutions ready for sales from day one. Payments, inventory, delivery — everything works flawlessly so you can sell 24/7.',
+        'hero-btn1':'Start Project','hero-btn2':'View Packages',
+        'del-title':'What You <span class="gradient-text">Get</span>','del-sub':'A complete e-commerce platform ready for sales.',
+        'd1-title':'Product Catalogue','d1-p':'Beautiful product presentation with categories, filters, search and sorting. The customer finds what they\'re looking for in seconds — not minutes.',
+        'd2-title':'Payment Integrations','d2-p':'Stripe, PayPal, cash on delivery, bank transfer — we integrate all methods popular in Bulgaria. Secure payments with SSL encryption.',
+        'd3-title':'Mobile-First Design','d3-p':'Over 65% of online purchases in Bulgaria are from phones. Your store is optimised for mobile shopping — fast, convenient and intuitive.',
+        'd4-title':'Inventory Management','d4-p':'Track stock in real time, receive low-quantity notifications and manage variants (sizes, colours) from one panel.',
+        'd5-title':'Customer Accounts','d5-p':'Registration, order history, wish list and saved addresses. Returning customers shop faster and spend more.',
+        'd6-title':'Promotions & Discounts','d6-p':'Promo codes, seasonal discounts, bundle offers, free shipping above a certain amount — all the tools for more sales.',
+        'd7-title':'SEO for Products','d7-p':'Optimised meta tags, schema markup for products, fast loading and clean URLs. Your products appear in Google Shopping and organic search.',
+        'd8-title':'Dashboard & Analytics','d8-p':'Clear admin panel with sales, conversions, best-selling products and customer behaviour. Know what works and where to invest.',
+        'proc-title':'How We Build<br><span class="gradient-text">an Online Store</span>',
+        's1-title':'Product Analysis','s1-p':'We understand what you sell, how many SKUs you have, what variants and categories. We define the catalogue structure and user experience.',
+        's2-title':'Store Design','s2-p':'We create a visual design focused on sales — clear navigation, highlighted promotions, fast checkout and mobile experience.',
+        's3-title':'Development & Integrations','s3-p':'We code the store and connect payment systems, delivery (Econt, Speedy), email notifications and inventory management.',
+        's4-title':'Product Loading','s4-p':'We help you load the first products — photos, descriptions, prices, variants. We train you to manage the catalogue yourself.',
+        's5-title':'Launch & First Sales','s5-p':'We test the entire purchase process, launch the store and monitor the first orders. 30 days of free support after launch.',
+        'price-title':'Choose a <span class="gradient-text">Package</span>','price-sub':'Three tiers tailored to different needs and budgets.',
+        'badge-popular':'Most Popular',
+        'p1-name':'Starter','p1-price':'600€','p1-desc':'For new online stores.','p1-f1':'Up to 50 products','p1-f2':'Payment gateway (Stripe/PayPal)','p1-f3':'Mobile responsive design','p1-f4':'Basic SEO for products','p1-f5':'Email order notifications','p1-f6':'Timeline: 14-18 days','p1-btn':'Choose Starter',
+        'p2-name':'Pro','p2-price':'1000€','p2-desc':'Full-featured store with all functions.','p2-f1':'Up to 200 products','p2-f2':'Inventory management','p2-f3':'Discount and promotions system','p2-f4':'Customer accounts','p2-f5':'Courier integration (Econt/Speedy)','p2-f6':'Timeline: 18-25 days','p2-btn':'Choose Pro',
+        'p3-name':'Premium','p3-price':'1800€+','p3-desc':'Enterprise solution without limits.','p3-f1':'Unlimited products','p3-f2':'Custom checkout process','p3-f3':'Multilingual support','p3-f4':'Advanced analytics','p3-f5':'Priority support','p3-f6':'Timeline: by arrangement','p3-btn':'Choose Premium',
+        'faq-title':'Frequently Asked <span class="gradient-text">Questions</span>',
+        'faq-q1':'What platform do you use for the store?','faq-a1':'Depends on the needs — for smaller stores we use Snipcart or Shopify, for more complex ones — a custom solution with Next.js + headless CMS. We always choose the best for the specific case.',
+        'faq-q2':'Can I add products myself?','faq-a2':'Yes, of course. All stores come with a convenient admin panel where you add, edit and manage products without technical knowledge. We also provide training.',
+        'faq-q3':'Do you support cash on delivery?','faq-a3':'Yes! Cash on delivery is the most popular method in Bulgaria. We integrate it together with Econt and Speedy so you receive your money directly upon delivery.',
+        'faq-q4':'How many products can I have?','faq-a4':'Starter — up to 50, Pro — up to 200, Premium — unlimited. As your business grows, we easily upgrade the catalogue without requiring a rework.',
+        'faq-q5':'Are there monthly fees?','faq-a5':'Depends on the platform — Shopify has a monthly subscription (~$29/month), custom solutions only have a hosting fee (~$5-20/month). We have no hidden monthly fees for development.',
+        'faq-q6':'Can I sell abroad?','faq-a6':'Yes! With the Premium package we set up a multilingual store with different currencies and international delivery. Sell in Bulgaria, Europe or worldwide.',
+        'cta-h2':'Sell online<br><span class="gradient-text">from tomorrow</span>',
+        'cta-p':'While you wait, your competitors are already selling. Launch your store now.','cta-btn':'Create Store',
+        'foot-tag':"We don't build websites.<br>We build growth.",'foot-srv-h':'Services','foot-nav-h':'Navigation','foot-con-h':'Contact','foot-city':'Sofia, Bulgaria','copyright':'© 2026 Velshift. All rights reserved.'
+      }
+    };
+    let currentLang = 'bg';
+    function setLang(l) {
+      currentLang = l;
+      document.documentElement.lang = l;
+      const t = translations[l];
+      document.querySelectorAll('[data-t]').forEach(e => { const k = e.dataset.t; if (t[k] !== undefined) e.innerHTML = t[k] });
+      ['btn-bg','btn-bg-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'bg') });
+      ['btn-en','btn-en-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'en') });
+    }
+    function scrollToSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }) }
+    function openModal() { document.getElementById('contact-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = ''; }
+    function handleModalOverlayClick(e) { if (e.target === document.getElementById('contact-modal')) closeModal(); }
+    function closeMenu() { const mm = document.getElementById('mobile-menu'); const hb = document.getElementById('hamburger'); if (mm) mm.classList.remove('open'); if (hb) hb.classList.remove('open'); }
+
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60) }, { passive: true });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    });
+    function updateMenuTop() { const nav = document.getElementById('navbar'); const mm = document.getElementById('mobile-menu'); if (nav && mm) mm.style.top = nav.offsetHeight + 'px'; }
+    updateMenuTop();
+    window.addEventListener('resize', updateMenuTop, { passive: true });
+    window.addEventListener('scroll', updateMenuTop, { passive: true });
+
+    const pBar = document.getElementById('scene-progress');
+    window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; pBar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%' }, { passive: true });
+
+    const obs = new IntersectionObserver(en => { en.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); e.target.querySelectorAll('[data-count]').forEach(animC) } }) }, { threshold: .05, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+    function animC(el) { if (el._d) return; el._d = 1; const tg = +el.dataset.count, sf = el.dataset.suffix || '', dur = 2200, t0 = performance.now(); const st = n => { const p = Math.min((n - t0) / dur, 1); el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * tg) + sf; if (p < 1) requestAnimationFrame(st) }; requestAnimationFrame(st) }
+
+    document.querySelectorAll('.glass-card').forEach(c => {
+      c.addEventListener('mousemove', e => {
+        const r = c.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', (x * 100) + '%');
+        c.style.setProperty('--my', (y * 100) + '%');
+        const rx = x - .5, ry = y - .5;
+        c.style.transform = `perspective(800px) rotateY(${rx * 6}deg) rotateX(${-ry * 6}deg) translateY(-8px) scale(1.015)`;
+      }, { passive: true });
+      c.addEventListener('mouseleave', () => { c.style.transform = '' }, { passive: true });
+    });
+
+    if (!isMobile) {
+      document.querySelectorAll('.btn-primary,.btn-outline,.btn-cta,.btn-quote').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${x * .15}px,${y * .15}px) scale(1.04)`;
+        }, { passive: true });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = '' }, { passive: true });
+      });
+    }
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
+    const _mf = document.getElementById('modalForm');
+    if (_mf) _mf.addEventListener('submit', handleFormSubmit);
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      const errEl = document.getElementById('form-error');
+      const form = e.target;
+      btn.disabled = true; errEl.style.display = 'none';
+      const data = { name: form.name.value.trim(), email: form.email.value.trim(), phone: form.phone.value.trim() || null, service: form.service.value, budget: form.budget.value || null, description: form.description.value.trim() || null };
+      try {
+        const sb = await getSB();
+        const { error } = await sb.from('inquiries').insert([data]);
+        if (error) throw error;
+        document.getElementById('form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } catch (err) {
+        errEl.textContent = 'Грешка при изпращане. Моля, опитайте отново. / Error sending. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+      }
+    }
+
+    (function () {
+      const canvas = document.getElementById('cinematic-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+      renderer.setClearColor(0x030918, 1);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1));
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x030918, 0.018);
+      const camera = new THREE.PerspectiveCamera(62, 1, 0.1, 300);
+      camera.position.set(0, 0, 14);
+      function resize() { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix() }
+      resize(); window.addEventListener('resize', resize, { passive: true });
+      const isMob = innerWidth < 768;
+      const mouse3D = { x: 0, y: 0 };
+      if (!isMobile) window.addEventListener('mousemove', e => { mouse3D.x = (e.clientX / innerWidth - .5) * 2; mouse3D.y = (e.clientY / innerHeight - .5) * 2 }, { passive: true });
+      const phase = { particleSpread: 25, attractionForce: 0, glowIntensity: 0, cameraZ: 14, focalOpacity: 0, panelGlow: 0 };
+      let canvasVisible = true;
+      const visObs = new IntersectionObserver(en => { canvasVisible = en[0].isIntersecting }, { threshold: 0 });
+      visObs.observe(canvas);
+      const radialLight = document.getElementById('radial-light');
+      const nearCount = isMob ? 10 : 30, midCount = isMob ? 200 : 700, farCount = isMob ? 150 : 500;
+      const farGeo = new THREE.BufferGeometry(), farPos = new Float32Array(farCount * 3);
+      for (let i = 0; i < farCount; i++) { farPos[i * 3] = (Math.random() - .5) * 100; farPos[i * 3 + 1] = (Math.random() - .5) * 60; farPos[i * 3 + 2] = -30 - Math.random() * 60 }
+      farGeo.setAttribute('position', new THREE.BufferAttribute(farPos, 3));
+      const farPts = new THREE.Points(farGeo, new THREE.PointsMaterial({ size: .012, color: 0xaabbdd, transparent: true, opacity: .35, sizeAttenuation: true }));
+      scene.add(farPts);
+      const nearGeo = new THREE.BufferGeometry(), nearPos = new Float32Array(nearCount * 3), nearVel = new Float32Array(nearCount * 3);
+      for (let i = 0; i < nearCount; i++) {
+        nearPos[i * 3] = (Math.random() - .5) * 24; nearPos[i * 3 + 1] = (Math.random() - .5) * 16; nearPos[i * 3 + 2] = 3 + Math.random() * 5;
+        nearVel[i * 3] = (Math.random() - .5) * .003; nearVel[i * 3 + 1] = (Math.random() - .5) * .002;
+      }
+      nearGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
+      const nearPts = new THREE.Points(nearGeo, new THREE.PointsMaterial({ size: .3, color: 0xFF5A57, transparent: true, opacity: .08, sizeAttenuation: true, blending: THREE.AdditiveBlending }));
+      scene.add(nearPts);
+      const midGeo = new THREE.BufferGeometry();
+      const midPos = new Float32Array(midCount * 3), midOrig = new Float32Array(midCount * 3);
+      const midCol = new Float32Array(midCount * 3), midVel = new Float32Array(midCount * 3);
+      const palette = [[1, .35, .34], [.88, .18, .46], [.95, .95, 1], [.6, .25, .5]];
+      const midTarget = new Float32Array(midCount * 3);
+      for (let i = 0; i < midCount; i++) {
+        const r = phase.particleSpread * Math.cbrt(Math.random()), th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+        midPos[i * 3] = r * Math.sin(ph) * Math.cos(th); midPos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th); midPos[i * 3 + 2] = r * Math.cos(ph);
+        midOrig[i * 3] = midPos[i * 3]; midOrig[i * 3 + 1] = midPos[i * 3 + 1]; midOrig[i * 3 + 2] = midPos[i * 3 + 2];
+        midVel[i * 3] = (Math.random() - .5) * .02; midVel[i * 3 + 1] = (Math.random() - .5) * .02; midVel[i * 3 + 2] = (Math.random() - .5) * .02;
+        const st = Math.random() * Math.PI * 2, sp = Math.acos(2 * Math.random() - 1), sr = 3.2 + Math.random() * .8;
+        midTarget[i * 3] = sr * Math.sin(sp) * Math.cos(st); midTarget[i * 3 + 1] = sr * Math.sin(sp) * Math.sin(st); midTarget[i * 3 + 2] = sr * Math.cos(sp);
+        const c = palette[Math.floor(Math.random() * palette.length)];
+        midCol[i * 3] = c[0]; midCol[i * 3 + 1] = c[1]; midCol[i * 3 + 2] = c[2];
+      }
+      midGeo.setAttribute('position', new THREE.BufferAttribute(midPos, 3));
+      midGeo.setAttribute('color', new THREE.BufferAttribute(midCol, 3));
+      const midMat = new THREE.PointsMaterial({ size: .04, vertexColors: true, transparent: true, opacity: .7, sizeAttenuation: true, blending: THREE.AdditiveBlending });
+      const midPts = new THREE.Points(midGeo, midMat);
+      scene.add(midPts);
+      const focalGroup = new THREE.Group();
+      focalGroup.visible = false;
+      const panelGeo = new THREE.PlaneGeometry(5.2, 3.4, 1, 1);
+      const panelMat = new THREE.MeshBasicMaterial({ color: 0x0a1540, transparent: true, opacity: .35, side: THREE.DoubleSide });
+      const panel = new THREE.Mesh(panelGeo, panelMat);
+      focalGroup.add(panel);
+      const borderGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(5.2, 3.4, .02));
+      const borderMat = new THREE.LineBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .4 });
+      const border = new THREE.LineSegments(borderGeo, borderMat);
+      focalGroup.add(border);
+      for (let i = 0; i < 8; i++) {
+        const w = 1 + Math.random() * 1.8, lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-w / 2, 0, 0), new THREE.Vector3(w / 2, 0, 0)]);
+        const lm = new THREE.LineBasicMaterial({ color: i < 2 ? 0xFF5A57 : 0x334488, transparent: true, opacity: .3 + Math.random() * .2 });
+        const line = new THREE.Line(lg, lm);
+        line.position.set(-.3 + Math.random() * .6, .8 - i * .35, .02);
+        focalGroup.add(line);
+      }
+      for (let i = 0; i < 5; i++) {
+        const dg = new THREE.SphereGeometry(.04, 8, 8);
+        const dm = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .6 });
+        const dot = new THREE.Mesh(dg, dm);
+        dot.position.set(-1.4 + i * .15, .9, .02);
+        focalGroup.add(dot);
+      }
+      const glowPlaneGeo = new THREE.PlaneGeometry(5, 3.5);
+      const glowPlaneMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, side: THREE.DoubleSide, blending: THREE.AdditiveBlending });
+      const glowPlane = new THREE.Mesh(glowPlaneGeo, glowPlaneMat);
+      glowPlane.position.z = -.3;
+      focalGroup.add(glowPlane);
+      scene.add(focalGroup);
+      const orbGeo = new THREE.SphereGeometry(.15, 16, 16);
+      const orbMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, blending: THREE.AdditiveBlending });
+      const orb = new THREE.Mesh(orbGeo, orbMat);
+      scene.add(orb);
+      let scrollProg = 0;
+      window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; scrollProg = h > 0 ? scrollY / h : 0 }, { passive: true });
+      let t = 0, frameCount = 0;
+      const FPS = 30, FRAME_MS = 1000 / FPS;
+      let lastFrame = 0;
+      function animate(now) {
+        requestAnimationFrame(animate);
+        if (!canvasVisible) return;
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now; frameCount++; t += 0.016;
+        const af = phase.attractionForce;
+        const mP = midGeo.attributes.position.array;
+        for (let i = 0; i < midCount; i++) {
+          const i3 = i * 3;
+          if (af > 0) { const dx = midTarget[i3] - mP[i3], dy = midTarget[i3 + 1] - mP[i3 + 1], dz = midTarget[i3 + 2] - mP[i3 + 2]; mP[i3] += dx * af * .03; mP[i3 + 1] += dy * af * .03; mP[i3 + 2] += dz * af * .03; }
+          const b = Math.sin(t * .4 + i * .005) * .03 * (1 - af * .5);
+          mP[i3] += b; mP[i3 + 1] += Math.cos(t * .3 + i * .007) * .02 * (1 - af * .5);
+        }
+        if (!isMobile && af < .5) {
+          const cx = mouse3D.x * 8, cy = -mouse3D.y * 5;
+          for (let i = 0; i < 100; i++) { const i3 = i * 3, dx = mP[i3] - cx, dy = mP[i3 + 1] - cy, d = Math.sqrt(dx * dx + dy * dy); if (d < 2.5) { const f = (2.5 - d) * .015; mP[i3] += dx * f; mP[i3 + 1] += dy * f } }
+        }
+        midGeo.attributes.position.needsUpdate = true;
+        const nP = nearGeo.attributes.position.array;
+        for (let i = 0; i < nearCount; i++) {
+          nP[i * 3] += nearVel[i * 3]; nP[i * 3 + 1] += nearVel[i * 3 + 1];
+          if (Math.abs(nP[i * 3]) > 12) nearVel[i * 3] *= -1;
+          if (Math.abs(nP[i * 3 + 1]) > 8) nearVel[i * 3 + 1] *= -1;
+        }
+        nearGeo.attributes.position.needsUpdate = true;
+        if (frameCount % 6 === 0) { const fP = farGeo.attributes.position.array; for (let i = 0; i < farCount; i++) { fP[i * 3] -= .006; if (fP[i * 3] < -50) fP[i * 3] = 50 } farGeo.attributes.position.needsUpdate = true; }
+        midPts.rotation.y += .0003; midPts.rotation.x += .0001;
+        if (phase.focalOpacity > 0.01) {
+          focalGroup.visible = true;
+          panelMat.opacity = phase.focalOpacity * .35; borderMat.opacity = phase.focalOpacity * .5; glowPlaneMat.opacity = phase.panelGlow * .06;
+          focalGroup.rotation.y = Math.sin(t * .2) * .08; focalGroup.rotation.x = Math.sin(t * .15) * .008; focalGroup.position.y = Math.sin(t * .3) * .15;
+        }
+        orbMat.opacity = phase.glowIntensity * .5;
+        orb.scale.setScalar(.5 + phase.glowIntensity * 1.5 + Math.sin(t * 3) * .1);
+        orb.position.set(Math.sin(t * .5) * .3, Math.cos(t * .4) * .2, 0);
+        const oA = t * .0006, oR = isMob ? .05 : .4;
+        const shX = Math.sin(t * 4.3) * .01 + Math.sin(t * 7.1) * .005;
+        const shY = Math.cos(t * 3.7) * .008 + Math.cos(t * 6.3) * .004;
+        const tX = mouse3D.x * .5 + Math.sin(oA) * oR + shX;
+        const tY = -mouse3D.y * .35 + Math.cos(oA * .7) * oR * .4 + shY;
+        const tZ = phase.cameraZ + scrollProg * 6;
+        camera.position.x += (tX - camera.position.x) * .025;
+        camera.position.y += (tY - camera.position.y) * .025;
+        camera.position.z += (tZ - camera.position.z) * .04;
+        camera.lookAt(0, 0, 0);
+        if (frameCount % 3 === 0) radialLight.style.opacity = phase.glowIntensity;
+        renderer.render(scene, camera);
+      }
+      requestAnimationFrame(animate);
+      const tl = gsap.timeline({ delay: .3 });
+      tl.to(phase, { particleSpread: 15, duration: 0.5, ease: 'power2.out' });
+      tl.to(phase, { particleSpread: 10, duration: 0.4, ease: 'power1.inOut' }, '+=0');
+      tl.to(phase, { attractionForce: 1, duration: 0.9, ease: 'power2.inOut' }, '<+0.1');
+      tl.to(phase, { cameraZ: 10, duration: 1.0, ease: 'power2.inOut' }, '<');
+      tl.to(phase, { glowIntensity: .6, duration: 0.7, ease: 'power2.in' }, '<+0.3');
+      tl.to('#energy-pulse', { opacity: 1, width: 300, height: 300, duration: .3, ease: 'power4.out' }, '+=0');
+      tl.to('#energy-pulse', { opacity: 0, width: 600, height: 600, duration: .4, ease: 'power2.out' });
+      tl.to(phase, { focalOpacity: 1, duration: 0.6, ease: 'power2.out' }, '<-.1');
+      tl.to(phase, { panelGlow: 1, duration: 0.5, ease: 'power2.out' }, '<+.15');
+      tl.to(phase, { cameraZ: 12, glowIntensity: .3, duration: 1.5, ease: 'power2.inOut' }, '<');
+    })();
+
+    (function () {
+      const heroTl = gsap.timeline({ delay: 0.1 });
+      heroTl.to('#navbar', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0);
+      heroTl.to('.subpage-hero .breadcrumb', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, 0.2);
+      heroTl.to('.subpage-hero h1', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.8, ease: 'power3.out' }, 0.45);
+      heroTl.to('.subpage-hero .hero-sub', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, 0.65);
+      heroTl.to('.subpage-hero .hero-btns', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.6, ease: 'power3.out' }, 0.85);
+    })();
+  </script>
+</body>
+</html>

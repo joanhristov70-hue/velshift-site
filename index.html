@@ -1,0 +1,2602 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velshift — Уеб Агенция София | Уеб Дизайн &amp; Лендинг Страници</title>
+  <meta name="description"
+    content="Velshift е премиум уеб агенция в София. Правим уеб сайтове, лендинг страници и онлайн магазини от нулата — без шаблони, без WordPress. Отговор до 24 часа." />
+  <link rel="canonical" href="https://velshift.com/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="Velshift" />
+  <meta name="geo.region" content="BG-22" />
+  <meta name="geo.placename" content="София" />
+  <meta name="geo.position" content="42.6977;23.3219" />
+  <meta name="ICBM" content="42.6977, 23.3219" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://velshift.com/" />
+  <meta property="og:title" content="Velshift — Уеб Агенция София | Изграждаме Растеж" />
+  <meta property="og:description"
+    content="Премиум уеб дизайн и лендинг страници за бизнеси в София. Сайтове от нулата, без шаблони. Резултати от първия ден." />
+  <meta property="og:image" content="https://velshift.com/og-image.jpg" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Velshift" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Velshift — Уеб Агенция София" />
+  <meta name="twitter:description" content="Премиум уеб дизайн за бизнеси в София. Сайтове от нулата, без шаблони." />
+  <meta name="twitter:image" content="https://velshift.com/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font"
+    href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+    type="font/woff2" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --c1: #FF5A57;
+      --c2: #E02F75;
+      --bg: #030918;
+      --bg2: #08103F;
+      --text-muted: #8090B8;
+    }
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--c1) var(--bg);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+    }
+
+    /* GLASS CARDS — premium depth */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.015);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 90, 87, 0.08);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      contain: layout style;
+      transition: border-color .2s, background .2s, transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 90, 87, 0.03), transparent 50%);
+      opacity: 0;
+      transition: opacity .5s;
+      pointer-events: none;
+    }
+
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 90, 87, 0.06) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .4s;
+      pointer-events: none;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 90, 87, 0.3);
+      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-8px) scale(1.015);
+      box-shadow: 0 30px 80px rgba(255, 90, 87, 0.06), 0 0 1px rgba(255, 90, 87, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .glass-card:hover::after {
+      opacity: 1;
+    }
+
+    .grad-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c1), var(--c2), transparent);
+    }
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--c1), var(--c2));
+      border-radius: 3px;
+    }
+
+    ::selection {
+      background: rgba(255, 90, 87, .3);
+    }
+
+    /* CURSOR — removed (desktop cursor uses default) */
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .5s, box-shadow .5s, padding .4s;
+      opacity: 0;
+    }
+
+    #navbar.scrolled {
+      background: rgba(3, 9, 24, .92);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      box-shadow: 0 1px 50px rgba(0, 0, 0, .5);
+      padding: 14px 40px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      position: relative;
+      transition: color .15s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c1), var(--c2));
+      transform: scaleX(0);
+      transition: transform .18s cubic-bezier(.22, 1, .36, 1);
+      transform-origin: left;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-links a.nav-active {
+      color: #fff;
+    }
+
+    .nav-links a.nav-active::after {
+      transform: scaleX(1);
+    }
+
+    .lang-switcher {
+      display: flex;
+      border: 1px solid rgba(255, 90, 87, 0.3);
+      border-radius: 50px;
+      overflow: hidden;
+      font-size: 12px;
+    }
+
+    .lang-btn {
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: background .3s, color .2s;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: #fff;
+    }
+
+    .btn-quote {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: box-shadow .18s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-quote:hover {
+      box-shadow: 0 0 25px rgba(255, 90, 87, 0.3);
+      transform: scale(1.03);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--c1);
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      left: 0;
+      right: 0;
+      background: rgba(3, 9, 24, .97);
+      backdrop-filter: blur(24px);
+      padding: 20px 28px 28px;
+      border-top: 1px solid rgba(255, 90, 87, .1);
+      z-index: 99;
+      gap: 2px;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      color: var(--text-muted);
+      padding: 13px 0;
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      cursor: pointer;
+    }
+
+    .mobile-menu a:last-of-type {
+      border: none;
+    }
+
+    .mobile-menu a:hover {
+      color: #fff;
+    }
+
+    .mobile-menu .btn-quote {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 860px) {
+      #navbar {
+        padding: 16px 20px;
+        gap: 12px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* CINEMATIC CANVAS */
+    #cinematic-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* OVERLAYS */
+    #vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
+    }
+
+    #radial-light {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(ellipse at 50% 45%, rgba(255, 90, 87, 0.08) 0%, transparent 55%);
+    }
+
+    #energy-pulse {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      z-index: 0;
+      pointer-events: none;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 80px 40px rgba(255, 90, 87, 0.15), 0 0 200px 100px rgba(224, 47, 117, 0.05);
+      opacity: 0;
+    }
+
+    #scene-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      z-index: 101;
+      background: linear-gradient(90deg, var(--c1), var(--c2));
+      width: 0%;
+    }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Hero elements — hidden by default, GSAP reveals them */
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 90, 87, .3);
+      border-radius: 50px;
+      padding: 7px 18px;
+      margin-bottom: 28px;
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(30px);
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5.5vw, 76px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(40px);
+    }
+
+    .hero-h1-2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5.5vw, 76px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(40px);
+      text-shadow: 0 0 80px rgba(255, 90, 87, 0.4);
+    }
+
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateY(25px);
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: box-shadow .18s, transform .2s;
+      box-shadow: 0 0 40px rgba(255, 90, 87, .25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left .7s;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 60px rgba(255, 90, 87, .5);
+      transform: scale(1.04);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 90, 87, .35);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .18s, border-color .18s, box-shadow .18s, transform .2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 90, 87, .08);
+      border-color: rgba(255, 90, 87, .6);
+      box-shadow: 0 0 30px rgba(255, 90, 87, .12);
+      transform: scale(1.04);
+    }
+
+    .scroll-ind {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .scroll-ind .mouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid rgba(255, 90, 87, .3);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    .scroll-ind .dot {
+      width: 4px;
+      height: 8px;
+      background: linear-gradient(var(--c1), var(--c2));
+      border-radius: 2px;
+      animation: scrollDot 2s infinite;
+    }
+
+    @keyframes scrollDot {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      60% {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* PERFORMANCE: content-visibility for off-screen sections */
+    #stats,
+    #services,
+    #portfolio,
+    #process,
+    #cta,
+    #footer {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 600px;
+    }
+
+    /* STATS */
+    #stats {
+      padding: 90px 40px;
+      background: linear-gradient(180deg, transparent 0%, rgba(3, 9, 24, 0.9) 20%, rgba(3, 9, 24, 0.9) 80%, transparent 100%);
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 700;
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .stats-line {
+      max-width: 700px;
+      margin: 70px auto 0;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      #stats {
+        padding: 70px 24px;
+      }
+    }
+
+    /* SERVICES */
+    #services {
+      padding: 100px 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 36px;
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .service-price {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #services {
+        padding: 70px 20px;
+      }
+    }
+
+    /* PORTFOLIO */
+    #portfolio {
+      padding: 100px 40px;
+    }
+
+    .portfolio-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+    }
+
+    .portfolio-img {
+      height: 260px;
+      background: linear-gradient(135deg, #060e30, #0D0821);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: inherit;
+    }
+
+    .portfolio-img .pshot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .4s;
+      filter: brightness(.85) saturate(.9);
+    }
+
+    .portfolio-card:hover .portfolio-img .pshot {
+      transform: scale(1.04);
+      filter: brightness(.65) saturate(.7);
+    }
+
+    .portfolio-img .pname {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px;
+      font-weight: 700;
+      color: rgba(255, 90, 87, .06);
+      pointer-events: none;
+      user-select: none;
+      transition: transform .6s cubic-bezier(.22, 1, .36, 1), color .4s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portfolio-card:hover .portfolio-img .pname {
+      transform: scale(1.1);
+      color: rgba(255, 90, 87, .1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 90, 87, .15), rgba(224, 47, 117, .15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay span {
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .portfolio-info {
+      padding: 24px;
+    }
+
+    .portfolio-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0 10px;
+    }
+
+    .portfolio-info p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .portfolio-link {
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+
+    .portfolio-link:hover {
+      opacity: .8;
+    }
+
+    @media (max-width: 680px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #portfolio {
+        padding: 70px 20px;
+      }
+    }
+
+    /* PROCESS */
+    #process {
+      padding: 100px 40px;
+    }
+
+    .process-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--c1), var(--c2));
+    }
+
+    @media (min-width: 769px) {
+      .timeline-line {
+        left: 50%;
+      }
+    }
+
+    .process-step {
+      display: flex;
+      margin-bottom: 56px;
+      position: relative;
+    }
+
+    .process-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-dot {
+      position: absolute;
+      left: 28px;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      z-index: 2;
+      box-shadow: 0 0 30px rgba(255, 90, 87, 0.2);
+    }
+
+    .step-content {
+      margin-left: 72px;
+      flex: 1;
+    }
+
+    @media (min-width: 769px) {
+      .process-step {
+        align-items: center;
+      }
+
+      .process-step:nth-child(odd) {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      .process-step:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .step-dot {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .process-step:nth-child(odd) .step-content {
+        margin-left: 0;
+        margin-right: 68px;
+        text-align: right;
+        max-width: 46%;
+      }
+
+      .process-step:nth-child(even) .step-content {
+        margin-left: 68px;
+        margin-right: 0;
+        max-width: 46%;
+      }
+    }
+
+    .step-content {
+      max-width: 340px;
+    }
+
+    .step-box {
+      padding: 24px;
+    }
+
+    .step-icon {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+    }
+
+    .step-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .step-box p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      #process {
+        padding: 70px 20px;
+      }
+    }
+
+
+    /* CTA */
+    #cta {
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .cta-content p {
+      color: var(--text-muted);
+      font-size: 17px;
+      margin-bottom: 40px;
+    }
+
+    .btn-cta {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+      border: none;
+      padding: 20px 52px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 50px rgba(255, 90, 87, .3), 0 0 100px rgba(224, 47, 117, .1);
+      transition: box-shadow .18s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left .7s;
+    }
+
+    .btn-cta:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 70px rgba(255, 90, 87, .5), 0 0 140px rgba(224, 47, 117, .2);
+    }
+
+    .btn-cta:hover::before {
+      left: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #cta {
+        padding: 80px 20px;
+      }
+    }
+
+    /* CTA INLINE FORM */
+    .cta-form-wrap {
+      margin-top: 36px;
+    }
+
+    .cta-form-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .cta-form-row input {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 90, 87, 0.2);
+      border-radius: 50px;
+      padding: 15px 22px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .cta-form-row input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .cta-form-row input:focus {
+      border-color: rgba(255, 90, 87, 0.5);
+    }
+
+    .btn-cta-submit {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: box-shadow .18s, transform .2s;
+      white-space: nowrap;
+    }
+
+    .btn-cta-submit:hover {
+      box-shadow: 0 0 30px rgba(255, 90, 87, 0.45);
+      transform: scale(1.03);
+    }
+
+    .btn-cta-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .cta-form-note {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    .cta-form-err {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .cta-form-ok {
+      color: #4caf50;
+      font-size: 15px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .cta-form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-form-row input,
+      .btn-cta-submit {
+        width: 100%;
+      }
+    }
+
+    /* FOOTER */
+    #footer {
+      padding: 60px 40px 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-top {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+
+    .contact-item {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      color: var(--text-muted);
+      transition: color .2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 24px;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      #footer {
+        padding: 48px 20px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: rgba(8, 16, 63, 0.96);
+      border: 1px solid rgba(255, 90, 87, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 520px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .modal-overlay.open .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .field-group {
+      margin-bottom: 18px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 90, 87, 0.15);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      border-color: rgba(255, 90, 87, 0.5);
+    }
+
+    .field-group select option {
+      background: #08103F;
+    }
+
+    .field-group textarea {
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: box-shadow 0.3s, opacity 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      box-shadow: 0 0 40px rgba(255, 90, 87, 0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-error {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon {
+      font-size: 48px;
+      color: #4caf50;
+      margin-bottom: 16px;
+    }
+
+    .form-success p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* STAR FIELD HERO */
+    .star-field-hero {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: var(--star-opacity, 0.6);
+      }
+
+      to {
+        opacity: 0.05;
+      }
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .stagger-1 {
+      transition-delay: .06s;
+    }
+
+    .stagger-2 {
+      transition-delay: .12s;
+    }
+
+    .stagger-3 {
+      transition-delay: .18s;
+    }
+
+    .stagger-4 {
+      transition-delay: .24s;
+    }
+
+    [data-t] {
+      transition: opacity .25s;
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-btns .btn-primary,
+      .hero-btns .btn-outline {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .step-content {
+        margin-left: 56px;
+      }
+
+      .step-dot {
+        width: 38px;
+        height: 38px;
+        font-size: 11px;
+      }
+
+      .modal-box {
+        padding: 24px 18px;
+      }
+    }
+
+    /* VIBER FLOAT — mobile only */
+    #viber-float {
+      display: none;
+      position: fixed;
+      bottom: 84px;
+      right: 20px;
+      z-index: 500;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #7360F2;
+      box-shadow: 0 4px 20px rgba(115, 96, 242, 0.55), 0 0 0 0 rgba(115, 96, 242, 0.4);
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      animation: viberPulse 2.4s infinite;
+    }
+
+    #viber-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(115, 96, 242, 0.75);
+      animation: none;
+    }
+
+    @keyframes viberPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(115, 96, 242, 0.55), 0 0 0 0 rgba(115, 96, 242, 0.35);
+      }
+
+      60% {
+        box-shadow: 0 4px 20px rgba(115, 96, 242, 0.55), 0 0 0 14px rgba(115, 96, 242, 0);
+      }
+    }
+
+    @media (max-width: 860px) {
+      #viber-float {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 52px;
+      }
+    }
+
+    /* MOBILE CALL BAR */
+    .mobile-call-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 499;
+      height: 52px;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 860px) {
+      .mobile-call-bar {
+        display: flex;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  </script>
+</head>
+
+<body>
+
+  <div id="scene-progress"></div>
+  <canvas id="cinematic-canvas"></canvas>
+  <div id="vignette"></div>
+  <div id="radial-light"></div>
+  <div id="energy-pulse"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="banner">
+    <span class="nav-logo gradient-text" onclick="scrollToSection('hero')">VELSHIFT</span>
+    <div class="nav-links">
+      <a onclick="scrollToSection('hero')" data-t="nav-home">Начало</a>
+      <a onclick="scrollToSection('services')" data-t="nav-services">Услуги</a>
+      <a href="portfolio.html" data-t="nav-portfolio">Портфолио</a>
+      <a href="about.html">За нас</a>
+      <a href="pricing.html">Цени</a>
+      <a onclick="scrollToSection('cta')" data-t="nav-contact">Контакт</a>
+      <button class="btn-quote" onclick="openModal()" data-t="nav-quote">Запитване</button>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-bg" onclick="setLang('bg')">БГ</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+  <main>
+    <div class="mobile-menu" id="mobile-menu">
+      <a onclick="closeMenu();scrollToSection('hero')" data-t="nav-home">Начало</a>
+      <a onclick="closeMenu();scrollToSection('services')" data-t="nav-services">Услуги</a>
+      <a href="portfolio.html" onclick="closeMenu()" data-t="nav-portfolio">Портфолио</a>
+      <a href="about.html" onclick="closeMenu()">За нас</a>
+      <a href="pricing.html" onclick="closeMenu()">Цени</a>
+      <a onclick="closeMenu();scrollToSection('cta')" data-t="nav-contact">Контакт</a>
+      <div class="lang-switcher" style="margin-top:10px;align-self:flex-start">
+        <button class="lang-btn active" id="btn-bg-m" onclick="setLang('bg')">БГ</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="btn-quote" style="margin-top:8px" onclick="closeMenu();openModal()"
+        data-t="nav-quote">Запитване</button>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="star-field-hero"></div>
+      <div class="hero-content">
+        <span class="hero-tag gradient-text" data-t="hero-tag">[ Дигитална Агенция ]</span>
+        <h1 class="hero-h1" data-t="hero-h1">Ние не правим сайтове.</h1>
+        <h1 class="hero-h1-2 gradient-text" data-t="hero-h2">Ние изграждаме растеж.</h1>
+        <p class="hero-sub" data-t="hero-sub">Превръщаме физическия бизнес в мощно дигитално присъствие.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="openModal()" data-t="hero-btn1">Започни Проект</button>
+          <button class="btn-outline" onclick="scrollToSection('portfolio')" data-t="hero-btn2">Виж Нашата
+            Работа</button>
+        </div>
+      </div>
+      <div class="scroll-ind">
+        <div class="mouse">
+          <div class="dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats">
+      <div class="stats-grid">
+        <div class="reveal stagger-1"><span class="stat-num gradient-text" data-count="100" data-suffix="%">0%</span>
+          <p class="stat-label" data-t="stat2">Доволни Клиенти</p>
+        </div>
+        <div class="reveal stagger-3"><span class="stat-num gradient-text" data-count="24" data-suffix="h">0h</span>
+          <p class="stat-label" data-t="stat4">Време за Отговор</p>
+        </div>
+      </div>
+      <div class="stats-line grad-line"></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-label="Услуги на Velshift">
+      <div class="section-header reveal">
+        <h2 data-t="srv-title">Какво Изграждаме</h2>
+        <p data-t="srv-sub">Премиум дигитални решения, създадени да развият твоя бизнес.</p>
+      </div>
+      <div class="services-grid">
+        <a href="services/web-design.html" class="service-card glass-card reveal stagger-1"
+          style="text-decoration:none;color:inherit;cursor:pointer">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="url(#sg1)" stroke-width="1.5">
+            <defs>
+              <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5A57" />
+                <stop offset="100%" stop-color="#E02F75" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+          <h3 data-t="s1-title">Уеб Дизайн & UI/UX</h3>
+          <p data-t="s1-desc">Зашеметяващи, бързи и модерни сайтове, изградени от нулата.</p><span
+            class="service-price gradient-text" data-t="s1-price">От 400€</span>
+        </a>
+        <a href="services/landing-pages.html" class="service-card glass-card reveal stagger-2"
+          style="text-decoration:none;color:inherit;cursor:pointer">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="url(#sg2)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="sg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5A57" />
+                <stop offset="100%" stop-color="#E02F75" />
+              </linearGradient>
+            </defs>
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+          </svg>
+          <h3 data-t="s2-title">Лендинг Страници</h3>
+          <p data-t="s2-desc">Страници с висока конверсия, които превръщат посетителите в клиенти.</p><span
+            class="service-price gradient-text" data-t="s2-price">От 250€</span>
+        </a>
+        <a href="services/ecommerce.html" class="service-card glass-card reveal stagger-3"
+          style="text-decoration:none;color:inherit;cursor:pointer">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="url(#sg3)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="sg3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5A57" />
+                <stop offset="100%" stop-color="#E02F75" />
+              </linearGradient>
+            </defs>
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+          </svg>
+          <h3 data-t="s3-title">Онлайн Магазини</h3>
+          <p data-t="s3-desc">Онлайн магазини, готови за продажби от първия ден.</p><span
+            class="service-price gradient-text" data-t="s3-price">От 600€</span>
+        </a>
+        <a href="services/digital-ads.html" class="service-card glass-card reveal stagger-4"
+          style="text-decoration:none;color:inherit;cursor:pointer">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="url(#sg4)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="sg4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5A57" />
+                <stop offset="100%" stop-color="#E02F75" />
+              </linearGradient>
+            </defs>
+            <path d="m3 11 18-5v12L3 14v-3z" />
+            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+          </svg>
+          <h3 data-t="s4-title">Дигитална Реклама</h3>
+          <p data-t="s4-desc">Реклами във Facebook, Instagram & Google, които носят реални резултати.</p><span
+            class="service-price gradient-text" data-t="s4-price">От 150€/месец</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" aria-label="Портфолио на Velshift">
+      <div class="section-header reveal">
+        <h2 data-t="port-title">Нашата Работа</h2>
+        <p data-t="port-sub">Всеки проект е изграден да носи резултати.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card glass-card reveal-left">
+          <div class="portfolio-img">
+            <img class="pshot" src="bobigroup.png" alt="Bobi Group уебсайт превю" fetchpriority="high" />
+            <span class="pname">Bobi</span>
+            <div class="portfolio-overlay"><a href="https://www.bobi-group.com/" target="_blank" rel="noopener"
+                style="color:#fff;text-decoration:none;font-weight:600;font-size:16px;" data-t="view-project">Виж
+                Проекта</a></div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag gradient-text" data-t="p1-tag">Хамалски Услуги · Извозване · Къртене</span>
+            <h3>Bobi Group</h3>
+            <p data-t="p1-desc">Лендинг с 3 услуги, галерия преди/след, карта на покритие, клиентски отзиви и форма за
+              оферта. SEO оптимизиран за София.</p>
+            <a href="https://www.bobi-group.com/" target="_blank" rel="noopener" class="portfolio-link gradient-text"
+              data-t="view-live">Виж Сайта →</a>
+          </div>
+        </div>
+        <div class="portfolio-card glass-card reveal-right">
+          <div class="portfolio-img">
+            <img class="pshot" src="gconsulting.png" alt="G Consulting уебсайт превю" loading="lazy" />
+            <span class="pname">GC</span>
+            <div class="portfolio-overlay"><a href="https://gconsulting.vercel.app/" target="_blank" rel="noopener"
+                style="color:#fff;text-decoration:none;font-weight:600;font-size:16px;" data-t="view-project">Виж
+                Проекта</a></div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag gradient-text" data-t="p2-tag">Преводи · Легализация · Образование</span>
+            <h3>G Consulting</h3>
+            <p data-t="p2-desc">Двуезичен сайт за преводи и легализация БГ ↔ ГР. Услуги, контакт форма и университетски
+              консултации за Петрос Гогас.</p>
+            <a href="https://gconsulting.vercel.app/" target="_blank" rel="noopener"
+              class="portfolio-link gradient-text" data-t="view-live">Виж Сайта →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-header reveal">
+        <h2 data-t="proc-title">Как Работим</h2>
+      </div>
+      <div class="process-wrap">
+        <div class="timeline-line"></div>
+        <div class="process-step reveal stagger-1">
+          <div class="step-dot">01</div>
+          <div class="step-content">
+            <div class="step-box glass-card"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="url(#pg1)"
+                stroke-width="1.5">
+                <defs>
+                  <linearGradient id="pg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF5A57" />
+                    <stop offset="100%" stop-color="#E02F75" />
+                  </linearGradient>
+                </defs>
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <h3 data-t="step1-title">Проучване</h3>
+              <p data-t="step1-desc">Запознаваме се с твоя бизнес и цели.</p>
+            </div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-2">
+          <div class="step-dot">02</div>
+          <div class="step-content">
+            <div class="step-box glass-card"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="url(#pg2)"
+                stroke-width="1.5">
+                <defs>
+                  <linearGradient id="pg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF5A57" />
+                    <stop offset="100%" stop-color="#E02F75" />
+                  </linearGradient>
+                </defs>
+                <path d="m12 20 7-7-3-3-7 7 3 3z" />
+                <path d="m14 14-3-3" />
+                <path d="M5 20H3v-2l5-5" />
+              </svg>
+              <h3 data-t="step2-title">Дизайн</h3>
+              <p data-t="step2-desc">Създаваме зашеметяващи визии, съобразени с твоята марка.</p>
+            </div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-3">
+          <div class="step-dot">03</div>
+          <div class="step-content">
+            <div class="step-box glass-card"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="url(#pg3)"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <linearGradient id="pg3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF5A57" />
+                    <stop offset="100%" stop-color="#E02F75" />
+                  </linearGradient>
+                </defs>
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              <h3 data-t="step3-title">Разработка</h3>
+              <p data-t="step3-desc">Изграждаме бързи, модерни и мащабируеми сайтове.</p>
+            </div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-4">
+          <div class="step-dot">04</div>
+          <div class="step-content">
+            <div class="step-box glass-card"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="url(#pg4)"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <linearGradient id="pg4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF5A57" />
+                    <stop offset="100%" stop-color="#E02F75" />
+                  </linearGradient>
+                </defs>
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+              <h3 data-t="step4-title">Старт & Растеж</h3>
+              <p data-t="step4-desc">Пускаме сайта ти и следим неговото представяне.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЗАЩО VELSHIFT -->
+    <section id="why-velshift" style="padding:100px 40px;content-visibility:auto;contain-intrinsic-size:0 500px;">
+      <div class="section-header reveal">
+        <h2>Защо <span class="gradient-text">Velshift</span></h2>
+        <p>Четири причини, по които бизнеси в София ни избират.</p>
+      </div>
+      <div
+        style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;">
+        <div class="glass-card reveal stagger-1" style="padding:32px;text-align:center;">
+          <span
+            style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;display:block;margin-bottom:14px;"
+            class="gradient-text">01</span>
+          <h3 style="font-size:17px;font-weight:600;margin-bottom:10px;">Без шаблони</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.6;">Всеки сайт е изграден от нулата — уникален
+            дизайн, съобразен с твоя бранд и аудитория. Без WordPress теми, без copy-paste.</p>
+        </div>
+        <div class="glass-card reveal stagger-2" style="padding:32px;text-align:center;">
+          <span
+            style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;display:block;margin-bottom:14px;"
+            class="gradient-text">02</span>
+          <h3 style="font-size:17px;font-weight:600;margin-bottom:10px;">Отговор до 24 часа</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.6;">Винаги на линия. Без чакане с дни за
+            отговор — комуникираме бързо и ясно през целия процес.</p>
+        </div>
+        <div class="glass-card reveal stagger-3" style="padding:32px;text-align:center;">
+          <span
+            style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;display:block;margin-bottom:14px;"
+            class="gradient-text">03</span>
+          <h3 style="font-size:17px;font-weight:600;margin-bottom:10px;">Гаранция 30 дни</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.6;">30 дни безплатни корекции след старта. Ако
+            нещо не работи или искаш промяна — оправяме го без допълнителна такса.</p>
+        </div>
+        <div class="glass-card reveal stagger-4" style="padding:32px;text-align:center;">
+          <span
+            style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;display:block;margin-bottom:14px;"
+            class="gradient-text">04</span>
+          <h3 style="font-size:17px;font-weight:600;margin-bottom:10px;">Резултати, не само дизайн</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.6;">Красивият сайт без клиенти е безсмислен.
+            Оптимизираме за конверсии, SEO и реален бизнес растеж.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="cta-content">
+        <h2 class="reveal" data-t="cta-title">Готов да прехвърлиш<br>бизнеса си онлайн?</h2>
+        <p class="reveal stagger-1" data-t="cta-sub">Нека изградим нещо изключително заедно.</p>
+        <div class="reveal stagger-2"><button class="btn-cta" onclick="openModal()" data-t="cta-btn">Започни Проекта Си
+            Днес</button></div>
+        <div class="cta-form-wrap reveal stagger-3">
+          <div id="cta-lead-form">
+            <form class="cta-form-row" onsubmit="handleCtaLead(event)">
+              <input type="text" id="cta-lead-name" placeholder="Вашето име" required />
+              <input type="email" id="cta-lead-email" placeholder="Имейл адрес" required />
+              <button type="submit" class="btn-cta-submit" id="cta-lead-btn">Изпрати →</button>
+            </form>
+            <p class="cta-form-note">Бърза форма — без спам, само резултати.</p>
+            <p class="cta-form-err" id="cta-lead-err" style="display:none"></p>
+          </div>
+          <p class="cta-form-ok" id="cta-lead-ok" style="display:none">✓ Получихме те! Ще се свържем скоро.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="grad-line" style="margin-bottom:56px"></div>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo gradient-text" onclick="scrollToSection('hero')">VELSHIFT</div>
+          <p class="footer-tagline" data-t="foot-tag">Ние не правим сайтове.<br>Ние изграждаме растеж.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-srv-h">Услуги</h4>
+          <ul>
+            <li><a href="services/web-design.html">Уеб Дизайн & UI/UX</a></li>
+            <li><a href="services/landing-pages.html">Лендинг Страници</a></li>
+            <li><a href="services/ecommerce.html">Онлайн Магазини</a></li>
+            <li><a href="services/digital-ads.html">Дигитална Реклама</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-nav-h">Навигация</h4>
+          <ul>
+            <li><a href="index.html">Начало</a></li>
+            <li><a href="portfolio.html">Портфолио</a></li>
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="pricing.html">Цени</a></li>
+            <li><a href="contact.html">Контакт</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-con-h">Контакт</h4>
+          <p class="contact-item">hello@velshift.com</p>
+          <p class="contact-item">+359 88 888 8888</p>
+          <p class="contact-item" data-t="foot-city">София, България</p>
+          <div class="socials">
+            <a href="javascript:void(0)" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg></a>
+            <a href="javascript:void(0)" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg></a>
+            <a href="javascript:void(0)" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="grad-line"></div>
+      <div class="footer-bottom" style="padding-top:20px">
+        <p data-t="copyright">© 2026 Velshift. Всички права запазени.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="modal-overlay" onclick="handleModalOverlayClick(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <h2 class="modal-title">Запитване / Inquiry</h2>
+      <form id="contact-form" onsubmit="handleFormSubmit(event)">
+        <div id="form-fields">
+          <div class="field-group">
+            <label>Име / Name *</label>
+            <input type="text" name="name" required placeholder="Вашето име / Your name">
+          </div>
+          <div class="field-group">
+            <label>Имейл / Email *</label>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="field-group">
+            <label>Телефон / Phone</label>
+            <input type="tel" name="phone" placeholder="+359 88 ...">
+          </div>
+          <div class="field-group">
+            <label>Услуга / Service *</label>
+            <select name="service" required>
+              <option value="">-- Избери / Select --</option>
+              <option>Уеб Дизайн & UI/UX</option>
+              <option>Лендинг Страница</option>
+              <option>Онлайн Магазин</option>
+              <option>Дигитална Реклама</option>
+              <option>Не съм сигурен / Not sure</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Бюджет / Budget</label>
+            <select name="budget">
+              <option value="">-- Избери / Select --</option>
+              <option>До 300€</option>
+              <option>300€ – 600€</option>
+              <option>600€ – 1000€</option>
+              <option>1000€+</option>
+              <option>Ще обсъдим / Let's discuss</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Описание / Description</label>
+            <textarea name="description" style="min-height:90px"
+              placeholder="Разкажи ни за проекта си / Tell us about your project"></textarea>
+          </div>
+          <div id="form-error" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn-submit" id="btn-submit">Изпрати Запитване / Send Inquiry</button>
+        </div>
+        <div id="form-success" class="form-success" style="display:none">
+          <div class="success-icon">✓</div>
+          <p>Получихме запитването ти! Ще се свържем до 48 часа.<br>We received your inquiry! We'll be in touch within
+            48 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIBER FLOAT BUTTON — mobile only -->
+  <a id="viber-float" href="viber://chat?number=%2B359877602204" aria-label="Viber">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M24.3 4.2c-4.5.1-14.6 1.4-17.8 7.7C4.4 15.5 4 20.1 4 24.8c0 4.7.4 9.3 2.5 12.9v6.6c0 .7.5 1.1 1 1.1.2 0 .4-.1.6-.2l5.5-3.3c1.8.5 3.8.8 5.9.9h.5c8.7 0 17.6-4.7 19.5-14.2.5-2.4.5-4.9.3-7.4C38.8 10.4 31.6 4.5 24.3 4.2z" />
+      <path
+        d="M33.6 28.2c-.2-.4-1.4-.8-1.4-.8s-3.3-1.5-4.3-2c-.4-.2-.8-.2-1.1.2-.6.8-1.3 1.7-1.7 2.1-.3.3-.6.3-1 .1-2.3-1-4.2-2.5-5.7-4.4-.4-.5-.3-.8.1-1.2.4-.3.8-.8 1.1-1.2.3-.4.2-.8 0-1.1-.3-.6-1.5-3.6-1.9-4.6-.3-.7-.7-.7-1-.7h-.9c-.4 0-1 .1-1.5.7-.6.6-2 2-2 4.7s2 5.5 2.3 5.8c.3.4 4 6.5 9.9 8.8 3.6 1.4 5 1.1 5.9.9 1.3-.3 3-1.3 3.4-2.6.4-1.3.4-2.3.3-2.6z"
+        fill="#7360F2" />
+      <path
+        d="M29.4 13.4c-1.5-.8-3.2-1.3-5-1.4-.4 0-.7.3-.7.7s.3.7.7.7c1.5.1 3 .5 4.3 1.2 2.1 1.1 3.6 2.9 4.3 5.1.3.9.4 1.9.4 2.9 0 .4.3.7.7.7s.7-.3.7-.7c0-1.1-.2-2.3-.5-3.4-.9-2.5-2.7-4.7-4.9-5.8z"
+        fill="#7360F2" />
+      <path
+        d="M27.8 16.4c-1-.5-2.2-.8-3.4-.9-.4 0-.7.3-.7.7s.3.7.7.7c1 .1 2 .3 2.8.7 1.3.7 2.2 1.8 2.6 3.2.2.5.2 1.1.2 1.7 0 .4.3.7.7.7s.7-.3.7-.7c0-.8-.1-1.5-.3-2.2-.6-1.8-1.8-3.2-3.3-3.9z"
+        fill="#7360F2" />
+      <path
+        d="M26.2 19.5c-.6-.3-1.3-.5-2-.5-.4 0-.7.3-.7.7s.3.7.7.7c.5 0 1 .1 1.4.4.6.3 1 .8 1.2 1.5.1.3.1.5.1.8 0 .4.3.7.7.7s.7-.3.7-.7c0-.5-.1-.9-.2-1.3-.3-1-.9-1.8-1.9-2.3z"
+        fill="#7360F2" />
+    </svg>
+  </a>
+
+  <!-- MOBILE CALL BAR -->
+  <a class="mobile-call-bar" href="tel:+359877602204">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z" />
+    </svg>
+    Обадете се сега — +359 877 602 204
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // ── GLOBALS needed by onclick attributes ──
+    const SUPABASE_URL = 'https://pwcligmumjaufmrwhnch.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2xpZ211bWphdWZtcndobmNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1Mjg5MjUsImV4cCI6MjA5NDEwNDkyNX0.0qdLQplSoBqjR2hWXGIn_fXQ5taw2pa6ctqobObC3-I';
+    let _sb = null;
+    function getSB() { if (!_sb) { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'; document.head.appendChild(s); return new Promise(r => s.onload = () => { _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); r(_sb) }) } return Promise.resolve(_sb); }
+
+    // ── TRANSLATIONS ──
+    const translations = { bg: { 'nav-home': 'Начало', 'nav-services': 'Услуги', 'nav-portfolio': 'Портфолио', 'nav-process': 'Процес', 'nav-contact': 'Контакт', 'nav-quote': 'Запитване', 'hero-tag': '[ Дигитална Агенция ]', 'hero-h1': 'Ние не правим сайтове.', 'hero-h2': 'Ние изграждаме растеж.', 'hero-sub': 'Превръщаме физическия бизнес в мощно дигитално присъствие.', 'hero-btn1': 'Започни Проект', 'hero-btn2': 'Виж Нашата Работа', 'stat2': 'Доволни Клиенти', 'stat4': 'Време за Отговор', 'srv-title': 'Какво Изграждаме', 'srv-sub': 'Премиум дигитални решения, създадени да развият твоя бизнес.', 's1-title': 'Уеб Дизайн & UI/UX', 's1-desc': 'Зашеметяващи, бързи и модерни сайтове, изградени от нулата.', 's1-price': 'От 400€', 's2-title': 'Лендинг Страници', 's2-desc': 'Страници с висока конверсия, които превръщат посетителите в клиенти.', 's2-price': 'От 250€', 's3-title': 'Онлайн Магазини', 's3-desc': 'Онлайн магазини, готови за продажби от първия ден.', 's3-price': 'От 600€', 's4-title': 'Дигитална Реклама', 's4-desc': 'Реклами във Facebook, Instagram & Google, които носят реални резултати.', 's4-price': 'От 150€/месец', 'port-title': 'Нашата Работа', 'port-sub': 'Всеки проект е изграден да носи резултати.', 'view-project': 'Виж Проекта', 'p1-tag': 'Хамалски Услуги · Извозване · Къртене', 'p1-desc': 'Лендинг с 3 услуги, галерия преди/след, карта на покритие, клиентски отзиви и форма за оферта. SEO оптимизиран за София.', 'view-live': 'Виж Сайта →', 'p2-tag': 'Преводи · Легализация · Образование', 'p2-desc': 'Двуезичен сайт за преводи и легализация БГ ↔ ГР. Услуги, контакт форма и университетски консултации за Петрос Гогас.', 'proc-title': 'Как Работим', 'step1-title': 'Проучване', 'step1-desc': 'Запознаваме се с твоя бизнес и цели.', 'step2-title': 'Дизайн', 'step2-desc': 'Създаваме зашеметяващи визии, съобразени с твоята марка.', 'step3-title': 'Разработка', 'step3-desc': 'Изграждаме бързи, модерни и мащабируеми сайтове.', 'step4-title': 'Старт & Растеж', 'step4-desc': 'Пускаме сайта ти и следим неговото представяне.', 'cta-title': 'Готов да прехвърлиш<br>бизнеса си онлайн?', 'cta-sub': 'Нека изградим нещо изключително заедно.', 'cta-btn': 'Започни Проекта Си Днес', 'foot-tag': 'Ние не правим сайтове.<br>Ние изграждаме растеж.', 'foot-srv-h': 'Услуги', 'foot-nav-h': 'Навигация', 'foot-con-h': 'Контакт', 'foot-city': 'София, България', 'copyright': '© 2026 Velshift. Всички права запазени.' }, en: { 'nav-home': 'Home', 'nav-services': 'Services', 'nav-portfolio': 'Portfolio', 'nav-process': 'Process', 'nav-contact': 'Contact', 'nav-quote': 'Get a Quote', 'hero-tag': '[ Digital Agency ]', 'hero-h1': "We don't build websites.", 'hero-h2': 'We build growth.', 'hero-sub': 'We transform physical businesses into powerful digital experiences.', 'hero-btn1': 'Start Your Project', 'hero-btn2': 'View Our Work', 'stat2': 'Client Satisfaction', 'stat4': 'Response Time', 'srv-title': 'What We Build', 'srv-sub': 'Premium digital solutions tailored to grow your business.', 's1-title': 'Web Design & UI/UX', 's1-desc': 'Stunning, fast and modern websites built from scratch.', 's1-price': 'From 400€', 's2-title': 'Landing Pages', 's2-desc': 'High-converting pages that turn visitors into customers.', 's2-price': 'From 250€', 's3-title': 'E-commerce', 's3-desc': 'Online stores ready to sell from day one.', 's3-price': 'From 600€', 's4-title': 'Digital Ads', 's4-desc': 'Facebook, Instagram & Google ads that bring real results.', 's4-price': 'From 150€/mo', 'port-title': 'Our Work', 'port-sub': 'Every project is built to perform.', 'view-project': 'View Project', 'p1-tag': 'Moving · Hauling · Demolition', 'p1-desc': 'Landing page with 3 services, before/after gallery, coverage map, client reviews and quote form. SEO-optimised for Sofia.', 'view-live': 'View Live Site →', 'p2-tag': 'Translation · Legalization · Education', 'p2-desc': 'Bilingual BG ↔ GR website for translation, legalization and university consulting services by Petros Gogas.', 'proc-title': 'How We Work', 'step1-title': 'Discovery', 'step1-desc': 'We learn about your business and goals.', 'step2-title': 'Design', 'step2-desc': 'We craft stunning visuals tailored to your brand.', 'step3-title': 'Development', 'step3-desc': 'We build fast, modern and scalable websites.', 'step4-title': 'Launch & Grow', 'step4-desc': 'We launch your site and track its performance.', 'cta-title': 'Ready to shift your<br>business online?', 'cta-sub': "Let's build something extraordinary together.", 'cta-btn': 'Start Your Project Today', 'foot-tag': "We don't build websites.<br>We build growth.", 'foot-srv-h': 'Services', 'foot-nav-h': 'Links', 'foot-con-h': 'Contact', 'foot-city': 'Sofia, Bulgaria', 'copyright': '© 2026 Velshift. All rights reserved.' } };
+    let currentLang = 'bg';
+    function setLang(l) { currentLang = l; document.documentElement.lang = l; const t = translations[l]; document.querySelectorAll('[data-t]').forEach(e => { const k = e.dataset.t; if (t[k] !== undefined) e.innerHTML = t[k] });['btn-bg', 'btn-bg-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'bg') });['btn-en', 'btn-en-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'en') }); document.title = l === 'bg' ? 'Velshift — Изграждаме Растеж' : 'Velshift — We Build Growth' }
+    function scrollToSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }) }
+    function openModal() { document.getElementById('contact-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = ''; }
+    function handleModalOverlayClick(e) { if (e.target === document.getElementById('contact-modal')) closeModal(); }
+    function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
+
+    // ── NAVBAR ──
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60) }, { passive: true });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    });
+    function closeMenu() {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+    function updateMenuTop() { document.getElementById('mobile-menu').style.top = document.getElementById('navbar').offsetHeight + 'px' }
+    updateMenuTop();
+    window.addEventListener('resize', updateMenuTop, { passive: true });
+    window.addEventListener('scroll', updateMenuTop, { passive: true });
+
+    // ── PROGRESS ──
+    const pBar = document.getElementById('scene-progress');
+    window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; pBar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%' }, { passive: true });
+
+    // ── SCROLL SPY ──
+    (function () {
+      const sections = ['hero', 'services', 'portfolio', 'process', 'cta'];
+      const navLinks = document.querySelectorAll('.nav-links a');
+      function updateSpy() {
+        let active = 'hero';
+        sections.forEach(id => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 80) active = id });
+        navLinks.forEach(a => { const on = a.getAttribute('onclick') || ''; a.classList.toggle('nav-active', on.includes("'" + active + "'")) });
+      }
+      window.addEventListener('scroll', updateSpy, { passive: true });
+      updateSpy();
+    })();
+
+    // ── REVEAL ──
+    const obs = new IntersectionObserver(en => { en.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); e.target.querySelectorAll('[data-count]').forEach(animC) } }) }, { threshold: .05, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+    function animC(el) { if (el._d) return; el._d = 1; const tg = +el.dataset.count, sf = el.dataset.suffix || '', dur = 2200, t0 = performance.now(); const st = n => { const p = Math.min((n - t0) / dur, 1); el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * tg) + sf; if (p < 1) requestAnimationFrame(st) }; requestAnimationFrame(st) }
+
+    // ── GLASS CARD LIGHT FOLLOW ──
+    document.querySelectorAll('.glass-card').forEach(c => {
+      c.addEventListener('mousemove', e => {
+        const r = c.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', (x * 100) + '%');
+        c.style.setProperty('--my', (y * 100) + '%');
+        const rx = x - .5, ry = y - .5;
+        c.style.transform = `perspective(800px) rotateY(${rx * 6}deg) rotateX(${-ry * 6}deg) translateY(-8px) scale(1.015)`;
+      }, { passive: true });
+      c.addEventListener('mouseleave', () => { c.style.transform = '' }, { passive: true });
+    });
+
+    // ── MAGNETIC BUTTONS ──
+    if (!isMobile) {
+      document.querySelectorAll('.btn-primary,.btn-outline,.btn-cta,.btn-quote').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${x * .15}px,${y * .15}px) scale(1.04)`;
+        }, { passive: true });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = '' }, { passive: true });
+      });
+    }
+
+    // ── HERO STAR FIELD ──
+    (function () {
+      const sf = document.querySelector('.star-field-hero');
+      if (!sf) return;
+      const count = window.matchMedia('(pointer: coarse)').matches ? 15 : 40;
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('span');
+        const size = 1 + Math.random() * 2;
+        const opacity = 0.3 + Math.random() * 0.6;
+        const delay = Math.random() * 4;
+        const dur = 2 + Math.random() * 2;
+        s.style.cssText = `position:absolute;border-radius:50%;background:#fff;pointer-events:none;` +
+          `width:${size}px;height:${size}px;top:${Math.random() * 100}%;left:${Math.random() * 100}%;` +
+          `--star-opacity:${opacity};opacity:${opacity};` +
+          `animation:twinkle ${dur}s ${delay}s infinite alternate;`;
+        sf.appendChild(s);
+      }
+    })();
+
+    // ══════════════════════════════════════════════
+    // ── CINEMATIC THREE.JS ENGINE ──
+    // ══════════════════════════════════════════════
+    (function () {
+      const canvas = document.getElementById('cinematic-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+      renderer.setClearColor(0x030918, 1);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1)); // cap at 1x — biggest GPU win
+      // skip toneMapping overhead
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x030918, 0.018);
+      const camera = new THREE.PerspectiveCamera(62, 1, 0.1, 300);
+      camera.position.set(0, 0, 14);
+      function resize() { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix() }
+      resize(); window.addEventListener('resize', resize, { passive: true });
+
+      const isMob = innerWidth < 768;
+      const mouse3D = { x: 0, y: 0 };
+      if (!isMobile) window.addEventListener('mousemove', e => { mouse3D.x = (e.clientX / innerWidth - .5) * 2; mouse3D.y = (e.clientY / innerHeight - .5) * 2 }, { passive: true });
+
+      // ── PHASE STATE (controlled by GSAP intro timeline) ──
+      const phase = {
+        particleSpread: 25, attractionForce: 0, glowIntensity: 0,
+        cameraZ: 14, focalOpacity: 0, panelGlow: 0
+      };
+
+      // ── PAUSE WHEN OFF-SCREEN ──
+      let canvasVisible = true;
+      const visObs = new IntersectionObserver(en => { canvasVisible = en[0].isIntersecting }, { threshold: 0 });
+      visObs.observe(canvas);
+
+      // ── CACHE DOM REF ──
+      const radialLight = document.getElementById('radial-light');
+
+      // ── PARTICLE LAYERS — reduced counts ──
+      const nearCount = isMob ? 10 : 30, midCount = isMob ? 200 : 700, farCount = isMob ? 150 : 500;
+
+      // FAR — dense starfield
+      const farGeo = new THREE.BufferGeometry(), farPos = new Float32Array(farCount * 3);
+      for (let i = 0; i < farCount; i++) { farPos[i * 3] = (Math.random() - .5) * 100; farPos[i * 3 + 1] = (Math.random() - .5) * 60; farPos[i * 3 + 2] = -30 - Math.random() * 60 }
+      farGeo.setAttribute('position', new THREE.BufferAttribute(farPos, 3));
+      const farPts = new THREE.Points(farGeo, new THREE.PointsMaterial({ size: .012, color: 0xaabbdd, transparent: true, opacity: .35, sizeAttenuation: true }));
+      scene.add(farPts);
+
+      // NEAR — large bokeh foreground
+      const nearGeo = new THREE.BufferGeometry(), nearPos = new Float32Array(nearCount * 3), nearVel = new Float32Array(nearCount * 3);
+      for (let i = 0; i < nearCount; i++) {
+        nearPos[i * 3] = (Math.random() - .5) * 24; nearPos[i * 3 + 1] = (Math.random() - .5) * 16; nearPos[i * 3 + 2] = 3 + Math.random() * 5;
+        nearVel[i * 3] = (Math.random() - .5) * .003; nearVel[i * 3 + 1] = (Math.random() - .5) * .002;
+      }
+      nearGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
+      const nearPts = new THREE.Points(nearGeo, new THREE.PointsMaterial({
+        size: .3, color: 0xFF5A57, transparent: true, opacity: .08, sizeAttenuation: true, blending: THREE.AdditiveBlending
+      }));
+      scene.add(nearPts);
+
+      // MID — main particle field (these converge + morph)
+      const midGeo = new THREE.BufferGeometry();
+      const midPos = new Float32Array(midCount * 3), midOrig = new Float32Array(midCount * 3);
+      const midCol = new Float32Array(midCount * 3), midVel = new Float32Array(midCount * 3);
+      const palette = [[1, .35, .34], [.88, .18, .46], [.95, .95, 1], [.6, .25, .5]];
+      // sphere target positions
+      const midTarget = new Float32Array(midCount * 3);
+      for (let i = 0; i < midCount; i++) {
+        // scattered origin
+        const r = phase.particleSpread * Math.cbrt(Math.random()), th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+        midPos[i * 3] = r * Math.sin(ph) * Math.cos(th); midPos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th); midPos[i * 3 + 2] = r * Math.cos(ph);
+        midOrig[i * 3] = midPos[i * 3]; midOrig[i * 3 + 1] = midPos[i * 3 + 1]; midOrig[i * 3 + 2] = midPos[i * 3 + 2];
+        // velocity for chaotic phase
+        midVel[i * 3] = (Math.random() - .5) * .02; midVel[i * 3 + 1] = (Math.random() - .5) * .02; midVel[i * 3 + 2] = (Math.random() - .5) * .02;
+        // sphere target (radius ~2.5)
+        const st = Math.random() * Math.PI * 2, sp = Math.acos(2 * Math.random() - 1), sr = 3.2 + Math.random() * .8;
+        midTarget[i * 3] = sr * Math.sin(sp) * Math.cos(st); midTarget[i * 3 + 1] = sr * Math.sin(sp) * Math.sin(st); midTarget[i * 3 + 2] = sr * Math.cos(sp);
+        const c = palette[Math.floor(Math.random() * palette.length)];
+        midCol[i * 3] = c[0]; midCol[i * 3 + 1] = c[1]; midCol[i * 3 + 2] = c[2];
+      }
+      midGeo.setAttribute('position', new THREE.BufferAttribute(midPos, 3));
+      midGeo.setAttribute('color', new THREE.BufferAttribute(midCol, 3));
+      const midMat = new THREE.PointsMaterial({ size: .04, vertexColors: true, transparent: true, opacity: .7, sizeAttenuation: true, blending: THREE.AdditiveBlending });
+      const midPts = new THREE.Points(midGeo, midMat);
+      scene.add(midPts);
+
+      // ── FOCAL OBJECT: Glass UI Panel ──
+      const focalGroup = new THREE.Group();
+      focalGroup.visible = false;
+
+      // glass panel body
+      const panelGeo = new THREE.PlaneGeometry(5.2, 3.4, 1, 1);
+      const panelMat = new THREE.MeshBasicMaterial({ color: 0x0a1540, transparent: true, opacity: .35, side: THREE.DoubleSide });
+      const panel = new THREE.Mesh(panelGeo, panelMat);
+      focalGroup.add(panel);
+
+      // panel border (wireframe box)
+      const borderGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(5.2, 3.4, .02));
+      const borderMat = new THREE.LineBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .4 });
+      const border = new THREE.LineSegments(borderGeo, borderMat);
+      focalGroup.add(border);
+
+      // inner UI lines
+      for (let i = 0; i < 8; i++) {
+        const w = 1 + Math.random() * 1.8, lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-w / 2, 0, 0), new THREE.Vector3(w / 2, 0, 0)]);
+        const lm = new THREE.LineBasicMaterial({ color: i < 2 ? 0xFF5A57 : 0x334488, transparent: true, opacity: .3 + Math.random() * .2 });
+        const line = new THREE.Line(lg, lm);
+        line.position.set(-.3 + Math.random() * .6, .8 - i * .35, .02);
+        focalGroup.add(line);
+      }
+
+      // small dot indicators
+      for (let i = 0; i < 5; i++) {
+        const dg = new THREE.SphereGeometry(.04, 8, 8);
+        const dm = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .6 });
+        const dot = new THREE.Mesh(dg, dm);
+        dot.position.set(-1.4 + i * .15, .9, .02);
+        focalGroup.add(dot);
+      }
+
+      // glow plane behind panel
+      const glowPlaneGeo = new THREE.PlaneGeometry(5, 3.5);
+      const glowPlaneMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, side: THREE.DoubleSide, blending: THREE.AdditiveBlending });
+      const glowPlane = new THREE.Mesh(glowPlaneGeo, glowPlaneMat);
+      glowPlane.position.z = -.3;
+      focalGroup.add(glowPlane);
+
+      scene.add(focalGroup);
+
+      // ── AMBIENT GLOW ORB ──
+      const orbGeo = new THREE.SphereGeometry(.15, 16, 16);
+      const orbMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, blending: THREE.AdditiveBlending });
+      const orb = new THREE.Mesh(orbGeo, orbMat);
+      scene.add(orb);
+
+      // ── SCROLL STATE ──
+      let scrollProg = 0;
+      window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; scrollProg = h > 0 ? scrollY / h : 0 }, { passive: true });
+
+      // ── ANIMATION LOOP ──
+      let t = 0, frameCount = 0;
+      const FPS = 30, FRAME_MS = 1000 / FPS; // 30fps is plenty for particles
+      let lastFrame = 0;
+      function animate(now) {
+        requestAnimationFrame(animate);
+        if (!canvasVisible) return; // pause entirely when scrolled away
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now;
+        frameCount++;
+        t += 0.016;
+
+        const af = phase.attractionForce;
+        const mP = midGeo.attributes.position.array;
+
+        // particle physics
+        for (let i = 0; i < midCount; i++) {
+          const i3 = i * 3;
+          if (af > 0) {
+            const dx = midTarget[i3] - mP[i3], dy = midTarget[i3 + 1] - mP[i3 + 1], dz = midTarget[i3 + 2] - mP[i3 + 2];
+            mP[i3] += dx * af * .03; mP[i3 + 1] += dy * af * .03; mP[i3 + 2] += dz * af * .03;
+          }
+          const b = Math.sin(t * .4 + i * .005) * .03 * (1 - af * .5);
+          mP[i3] += b; mP[i3 + 1] += Math.cos(t * .3 + i * .007) * .02 * (1 - af * .5);
+        }
+
+        // cursor repulsion — only first 100 particles
+        if (!isMobile && af < .5) {
+          const cx = mouse3D.x * 8, cy = -mouse3D.y * 5;
+          for (let i = 0; i < 100; i++) {
+            const i3 = i * 3, dx = mP[i3] - cx, dy = mP[i3 + 1] - cy, d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 2.5) { const f = (2.5 - d) * .015; mP[i3] += dx * f; mP[i3 + 1] += dy * f }
+          }
+        }
+        midGeo.attributes.position.needsUpdate = true;
+
+        // near particles drift
+        const nP = nearGeo.attributes.position.array;
+        for (let i = 0; i < nearCount; i++) {
+          nP[i * 3] += nearVel[i * 3]; nP[i * 3 + 1] += nearVel[i * 3 + 1];
+          if (Math.abs(nP[i * 3]) > 12) nearVel[i * 3] *= -1;
+          if (Math.abs(nP[i * 3 + 1]) > 8) nearVel[i * 3 + 1] *= -1;
+        }
+        nearGeo.attributes.position.needsUpdate = true;
+
+        // far stars — update every 6th frame only
+        if (frameCount % 6 === 0) {
+          const fP = farGeo.attributes.position.array;
+          for (let i = 0; i < farCount; i++) { fP[i * 3] -= .006; if (fP[i * 3] < -50) fP[i * 3] = 50 }
+          farGeo.attributes.position.needsUpdate = true;
+        }
+
+        midPts.rotation.y += .0003; midPts.rotation.x += .0001;
+
+        if (phase.focalOpacity > 0.01) {
+          focalGroup.visible = true;
+          panelMat.opacity = phase.focalOpacity * .35;
+          borderMat.opacity = phase.focalOpacity * .5;
+          glowPlaneMat.opacity = phase.panelGlow * .06;
+          focalGroup.rotation.y = Math.sin(t * .2) * .08;
+          focalGroup.rotation.x = Math.sin(t * .15) * .008;
+          focalGroup.position.y = Math.sin(t * .3) * .15;
+        }
+
+        orbMat.opacity = phase.glowIntensity * .5;
+        orb.scale.setScalar(.5 + phase.glowIntensity * 1.5 + Math.sin(t * 3) * .1);
+        orb.position.set(Math.sin(t * .5) * .3, Math.cos(t * .4) * .2, 0);
+
+        const oA = t * .0006, oR = isMob ? .05 : .4;
+        const shX = Math.sin(t * 4.3) * .01 + Math.sin(t * 7.1) * .005;
+        const shY = Math.cos(t * 3.7) * .008 + Math.cos(t * 6.3) * .004;
+        const tX = mouse3D.x * .5 + Math.sin(oA) * oR + shX;
+        const tY = -mouse3D.y * .35 + Math.cos(oA * .7) * oR * .4 + shY;
+        const tZ = phase.cameraZ + scrollProg * 6;
+        camera.position.x += (tX - camera.position.x) * .025;
+        camera.position.y += (tY - camera.position.y) * .025;
+        camera.position.z += (tZ - camera.position.z) * .04;
+        camera.lookAt(0, 0, 0);
+
+        // only update DOM every 3 frames
+        if (frameCount % 3 === 0) radialLight.style.opacity = phase.glowIntensity;
+
+        renderer.render(scene, camera);
+      }
+      requestAnimationFrame(animate);
+
+      // ══════════════════════════════════════════════
+      // ── GSAP CINEMATIC INTRO TIMELINE ──
+      // ══════════════════════════════════════════════
+      const tl = gsap.timeline({ delay: .3 });
+
+      // Phase 1: Darkness, few particles appear (0–0.5s)
+      tl.to(phase, { particleSpread: 15, duration: 0.5, ease: 'power2.out' });
+
+      // Phase 2: Chaotic motion builds (0.5–0.9s)
+      tl.to(phase, { particleSpread: 10, duration: 0.4, ease: 'power1.inOut' }, '+=0');
+
+      // Phase 3: Attraction force activates, particles converge (0.6–1.6s)
+      tl.to(phase, { attractionForce: 1, duration: 0.9, ease: 'power2.inOut' }, '<+0.1');
+      tl.to(phase, { cameraZ: 10, duration: 1.0, ease: 'power2.inOut' }, '<');
+      tl.to(phase, { glowIntensity: .6, duration: 0.7, ease: 'power2.in' }, '<+0.3');
+
+      // Phase 4: Energy pulse (~1.6s — fires before any text)
+      tl.to('#energy-pulse', { opacity: 1, width: 300, height: 300, duration: .3, ease: 'power4.out' }, '+=0');
+      tl.to('#energy-pulse', { opacity: 0, width: 600, height: 600, duration: .4, ease: 'power2.out' });
+
+      // Phase 5: Focal glass panel appears (1.8–2.4s)
+      tl.to(phase, { focalOpacity: 1, duration: 0.6, ease: 'power2.out' }, '<-.1');
+      tl.to(phase, { panelGlow: 1, duration: 0.5, ease: 'power2.out' }, '<+.15');
+
+      // Phase 6: Typography reveals — blur to sharp (hero-tag completes at tl ~2.9s → ~3.2s after load)
+      tl.to('.hero-tag', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, '<+.25');
+      tl.to('.hero-h1', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.8, ease: 'power3.out' }, '<+.2');
+      tl.to('.hero-h1-2', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.8, ease: 'power3.out' }, '<+.2');
+      tl.to('.hero-sub', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, '<+.2');
+
+      // Phase 7: CTA buttons appear last
+      tl.to('.hero-btns', { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, '<+.3');
+
+      // Phase 8: Navbar + scroll indicator
+      tl.to('#navbar', { opacity: 1, duration: .5, ease: 'power2.out' }, '<+.15');
+      tl.to('.scroll-ind', { opacity: 1, duration: .5, ease: 'power2.out' }, '<+.1');
+
+      // Settle camera to final hero position
+      tl.to(phase, { cameraZ: 12, glowIntensity: .3, duration: 1.5, ease: 'power2.inOut' }, '<');
+
+    })();
+
+    // ── CTA LEAD FORM ──
+    async function handleCtaLead(e) {
+      e.preventDefault();
+      const btn = document.getElementById('cta-lead-btn');
+      const errEl = document.getElementById('cta-lead-err');
+      btn.disabled = true; btn.textContent = 'Изпращане…'; errEl.style.display = 'none';
+      const data = {
+        name: document.getElementById('cta-lead-name').value.trim(),
+        email: document.getElementById('cta-lead-email').value.trim()
+      };
+      try {
+        const sb = await getSB();
+        const { error } = await sb.from('cta_leads').insert([data]);
+        if (error) throw error;
+        document.getElementById('cta-lead-form').style.display = 'none';
+        document.getElementById('cta-lead-ok').style.display = 'block';
+      } catch (err) {
+        errEl.textContent = 'Грешка при изпращане. Моля, опитайте отново.';
+        errEl.style.display = 'block';
+        btn.disabled = false; btn.textContent = 'Изпрати →';
+      }
+    }
+
+    // ── MODAL ──
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal() });
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      const errEl = document.getElementById('form-error');
+      const form = e.target;
+      btn.disabled = true;
+      errEl.style.display = 'none';
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim() || null,
+        service: form.service.value,
+        budget: form.budget.value || null,
+        description: form.description.value.trim() || null
+      };
+      try {
+        const sb = await getSB();
+        const { error } = await sb.from('inquiries').insert([data]);
+        if (error) throw error;
+        document.getElementById('form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } catch (err) {
+        errEl.textContent = 'Грешка при изпращане. Моля, опитайте отново. / Error sending. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": "https://velshift.com/#business",
+  "name": "Velshift",
+  "description": "Премиум уеб агенция в София — уеб дизайн, лендинг страници, онлайн магазини и дигитална реклама за малки и средни бизнеси.",
+  "url": "https://velshift.com",
+  "telephone": "PLACEHOLDER_PHONE",
+  "email": "PLACEHOLDER_EMAIL",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PLACEHOLDER_ADDRESS",
+    "addressLocality": "София",
+    "addressRegion": "Sofia-Capital",
+    "postalCode": "PLACEHOLDER_POSTCODE",
+    "addressCountry": "BG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.6977,
+    "longitude": 23.3219
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "София"
+  },
+  "serviceType": ["Уеб Дизайн", "Лендинг Страници", "Онлайн Магазини", "Дигитална Реклама"],
+  "priceRange": "€€",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "PLACEHOLDER_FACEBOOK",
+    "PLACEHOLDER_INSTAGRAM",
+    "PLACEHOLDER_LINKEDIN"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Уеб услуги",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Уеб Дизайн & UI/UX" },
+        "price": "400",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Лендинг Страници" },
+        "price": "250",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Онлайн Магазини" },
+        "price": "600",
+        "priceCurrency": "EUR"
+      }
+    ]
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://velshift.com/#website",
+  "url": "https://velshift.com",
+  "name": "Velshift",
+  "description": "Уеб агенция в София",
+  "inLanguage": ["bg", "en"],
+  "publisher": { "@id": "https://velshift.com/#business" }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Портфолио",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Bobi Group — Хамалски Услуги",
+      "url": "https://www.bobi-group.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "G Consulting — Преводи и Легализация",
+      "url": "https://gconsulting.vercel.app/"
+    }
+  ]
+}
+</script>
+</body>
+
+</html>

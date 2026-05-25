@@ -1,0 +1,23 @@
+# Dev/editor junk
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Claude/local settings
+launch.json
+settings.local.json
+
+# Old/draft HTML files (not part of the site)
+velshift - Copy.html
+velshift-fast_2.html
+velshift.html
+index4.html
+main.js
+style.css
+
+# The separate React project (has its own repo)
+velshift/
+
+# Node
+node_modules/

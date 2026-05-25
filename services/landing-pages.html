@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лендинг Страници — Velshift | Уеб Агенция София</title>
+  <meta name="description" content="Лендинг страници с висока конверсия от Velshift. A/B тестване, pixel интеграция и копирайтинг, оптимизирани да превръщат посетители в клиенти.">
+  <link rel="canonical" href="https://velshift.com/landing-pages.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Лендинг Страници","provider":{"@type":"LocalBusiness","name":"Velshift","address":{"@type":"PostalAddress","addressLocality":"София","addressCountry":"BG"}},"description":"Лендинг страници с висока конверсия, A/B тестване и analytics.","areaServed":"София, България"}
+  </script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--c1:#FF5A57;--c2:#E02F75;--bg:#030918;--bg2:#08103F;--text-muted:#8090B8;--glass-border:rgba(255,90,87,0.08);--glass-bg:rgba(255,255,255,0.015)}
+    html{scrollbar-width:thin;scrollbar-color:var(--c1) var(--bg);scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+    .gradient-text{background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-bg{background:linear-gradient(135deg,var(--c1),var(--c2))}
+    .glass-card{background:rgba(255,255,255,0.015);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,90,87,0.08);border-radius:20px;position:relative;overflow:hidden;contain:layout style;transition:border-color .2s,background .2s,transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s}
+    .glass-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,90,87,0.03),transparent 50%);opacity:0;transition:opacity .5s;pointer-events:none}
+    .glass-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,90,87,0.06) 0%,transparent 50%);opacity:0;transition:opacity .4s;pointer-events:none}
+    .glass-card:hover{border-color:rgba(255,90,87,0.3);background:rgba(255,255,255,0.03);transform:translateY(-8px) scale(1.015);box-shadow:0 30px 80px rgba(255,90,87,0.06),0 0 1px rgba(255,90,87,0.3),inset 0 1px 0 rgba(255,255,255,0.04)}
+    .glass-card:hover::before{opacity:1}
+    .glass-card:hover::after{opacity:1}
+    .grad-line{height:1px;background:linear-gradient(90deg,transparent,var(--c1),var(--c2),transparent)}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(var(--c1),var(--c2));border-radius:3px}
+    ::selection{background:rgba(255,90,87,.3)}
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s,padding .4s;opacity:0}
+    #navbar.scrolled{background:rgba(3,9,24,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);box-shadow:0 1px 50px rgba(0,0,0,.5);padding:14px 40px}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:2px;cursor:pointer;text-decoration:none;color:#fff}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;cursor:pointer;position:relative;transition:color .15s}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transition:transform .18s cubic-bezier(.22,1,.36,1);transform-origin:left}
+    .nav-links a:hover{color:#fff}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-links a.nav-active{color:#fff}
+    .nav-links a.nav-active::after{transform:scaleX(1)}
+    .lang-switcher{display:flex;border:1px solid rgba(255,90,87,0.3);border-radius:50px;overflow:hidden;font-size:12px}
+    .lang-btn{padding:6px 14px;cursor:pointer;transition:background .3s,color .2s;background:transparent;border:none;color:var(--text-muted);font-weight:600;font-size:12px;letter-spacing:.05em}
+    .lang-btn.active{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff}
+    .lang-btn:hover:not(.active){color:#fff}
+    .btn-quote{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;transition:box-shadow .18s,transform .2s;position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-quote:hover{box-shadow:0 0 25px rgba(255,90,87,0.3);transform:scale(1.03)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .hamburger span{width:24px;height:2px;background:var(--c1);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mobile-menu{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(3,9,24,.97);backdrop-filter:blur(24px);padding:20px 28px 28px;border-top:1px solid rgba(255,90,87,.1);z-index:99;gap:2px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+    .mobile-menu.open{opacity:1;transform:translateY(0);pointer-events:all}
+    .mobile-menu a{color:var(--text-muted);padding:13px 0;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer}
+    .mobile-menu a:last-of-type{border:none}
+    .mobile-menu a:hover{color:#fff}
+    .mobile-menu .btn-quote{margin-top:14px;text-align:center}
+    @media(max-width:860px){#navbar{padding:16px 20px;gap:12px}.nav-links{display:none}.hamburger{display:flex}}
+    /* CANVAS & OVERLAYS */
+    #cinematic-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+    #vignette{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.65) 100%)}
+    #radial-light{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 45%,rgba(255,90,87,0.08) 0%,transparent 55%)}
+    #energy-pulse{position:fixed;top:50%;left:50%;width:0;height:0;z-index:0;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 80px 40px rgba(255,90,87,0.15),0 0 200px 100px rgba(224,47,117,0.05);opacity:0}
+    #scene-progress{position:fixed;top:0;left:0;height:2px;z-index:101;background:linear-gradient(90deg,var(--c1),var(--c2));width:0%}
+    /* BUTTONS */
+    .btn-primary{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:box-shadow .18s,transform .2s;box-shadow:0 0 40px rgba(255,90,87,.25);position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .7s}
+    .btn-primary:hover{box-shadow:0 0 60px rgba(255,90,87,.5);transform:scale(1.04)}
+    .btn-primary:hover::before{left:100%}
+    .btn-outline{background:transparent;border:1px solid rgba(255,90,87,.35);color:#fff;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,border-color .18s,box-shadow .18s,transform .2s;text-decoration:none;display:inline-block}
+    .btn-outline:hover{background:rgba(255,90,87,.08);border-color:rgba(255,90,87,.6);box-shadow:0 0 30px rgba(255,90,87,.12);transform:scale(1.04)}
+    .btn-cta{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:20px 52px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 0 50px rgba(255,90,87,.3),0 0 100px rgba(224,47,117,.1);transition:box-shadow .18s,transform .2s;position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+    .btn-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .7s}
+    .btn-cta:hover{transform:scale(1.04);box-shadow:0 0 70px rgba(255,90,87,.5),0 0 140px rgba(224,47,117,.2)}
+    .btn-cta:hover::before{left:100%}
+    /* SECTION HEADERS */
+    .section-header{text-align:center;margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:700;margin-bottom:14px}
+    .section-header p{color:var(--text-muted);font-size:15px;max-width:480px;margin:0 auto}
+    /* REVEAL ANIMATIONS */
+    .reveal{opacity:0;transform:translateY(50px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal-left.visible{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(60px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+    .reveal-right.visible{opacity:1;transform:translateX(0)}
+    .stagger-1{transition-delay:.06s}
+    .stagger-2{transition-delay:.12s}
+    .stagger-3{transition-delay:.18s}
+    .stagger-4{transition-delay:.24s}
+    .stagger-5{transition-delay:.3s}
+    .stagger-6{transition-delay:.36s}
+    .stagger-7{transition-delay:.42s}
+    [data-t]{transition:opacity .25s}
+    /* SUBPAGE HERO */
+    .subpage-hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;z-index:1}
+    .subpage-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 30%,rgba(255,90,87,0.06) 0%,transparent 60%)}
+    .subpage-hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,80px);font-weight:700;line-height:1.1;margin-bottom:20px}
+    .subpage-hero .hero-sub{color:var(--text-muted);font-size:17px;max-width:580px;line-height:1.7;margin-bottom:36px}
+    .subpage-hero .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);margin-bottom:24px;justify-content:center}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color .15s}
+    .breadcrumb a:hover{color:#fff}
+    .breadcrumb .sep{opacity:.4}
+    /* GSAP initial states for subpage hero */
+    .subpage-hero .breadcrumb,.subpage-hero h1,.subpage-hero .hero-sub,.subpage-hero .hero-btns{opacity:0;filter:blur(8px);transform:translateY(30px)}
+    /* DELIVERABLES */
+    .deliverables-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .deliverable-card{padding:32px}
+    .card-icon{width:40px;height:40px;margin-bottom:18px;display:block}
+    .deliverable-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:10px}
+    .deliverable-card p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    @media(max-width:860px){.deliverables-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:540px){.deliverables-grid{grid-template-columns:1fr}}
+    /* PROCESS */
+    .process-section{padding:100px 40px}
+    .process-wrap{max-width:840px;margin:0 auto;position:relative}
+    .timeline-line{position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--c1),var(--c2))}
+    @media(min-width:769px){.timeline-line{left:50%}}
+    .process-step{display:flex;margin-bottom:56px;position:relative}
+    .process-step:last-child{margin-bottom:0}
+    .step-dot{position:absolute;left:28px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;z-index:2;box-shadow:0 0 30px rgba(255,90,87,0.2)}
+    .step-content{margin-left:72px;flex:1}
+    @media(min-width:769px){.process-step{align-items:center}.process-step:nth-child(odd){flex-direction:row;justify-content:flex-end}.process-step:nth-child(even){flex-direction:row-reverse}.step-dot{left:50%;transform:translateX(-50%)}.process-step:nth-child(odd) .step-content{margin-left:0;margin-right:68px;text-align:right;max-width:46%}.process-step:nth-child(even) .step-content{margin-left:68px;margin-right:0;max-width:46%}}
+    .step-content{max-width:340px}
+    .step-box{padding:24px}
+    .step-box h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:8px}
+    .step-box p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    @media(max-width:768px){.process-section{padding:70px 20px}}
+    /* PRICING */
+    .pricing-section{padding:100px 40px}
+    .pricing-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .pricing-card{padding:36px;display:flex;flex-direction:column}
+    .pricing-card.featured{border-color:rgba(255,90,87,0.4);background:rgba(255,90,87,0.04);box-shadow:0 0 60px rgba(255,90,87,0.08)}
+    .pricing-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;margin-bottom:16px;align-self:flex-start}
+    .pricing-card h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:8px}
+    .pricing-price{font-size:36px;font-weight:700;margin-bottom:6px}
+    .pricing-price small{font-size:14px;color:var(--text-muted);font-weight:400}
+    .pricing-desc{color:var(--text-muted);font-size:14px;margin-bottom:24px;line-height:1.6}
+    .pricing-features{list-style:none;margin-bottom:28px;flex:1}
+    .pricing-features li{color:var(--text-muted);font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:10px}
+    .pricing-features li::before{content:'';width:18px;height:18px;flex-shrink:0;margin-top:1px;background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .pricing-card .btn-primary,.pricing-card .btn-outline{width:100%;text-align:center}
+    /* FAQ */
+    .faq-section{padding:100px 40px}
+    .faq-list{max-width:740px;margin:0 auto}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+    .faq-q{width:100%;background:none;border:none;color:#fff;font-size:16px;font-weight:600;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;transition:color .2s}
+    .faq-q:hover{color:var(--c1)}
+    .faq-q .faq-icon{width:24px;height:24px;flex-shrink:0;transition:transform .3s;color:var(--c1)}
+    .faq-item.open .faq-q .faq-icon{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0}
+    .faq-item.open .faq-a{max-height:300px;padding:0 0 22px}
+    .faq-a p{color:var(--text-muted);font-size:14px;line-height:1.7}
+    /* CTA */
+    .cta-section{padding:120px 40px;position:relative;overflow:hidden;text-align:center}
+    .cta-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+    .cta-content h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,60px);font-weight:700;line-height:1.2;margin-bottom:18px}
+    .cta-content p{color:var(--text-muted);font-size:17px;margin-bottom:40px}
+    @media(max-width:768px){.cta-section{padding:80px 20px}}
+    /* FOOTER */
+    #footer{padding:60px 40px 30px;position:relative;z-index:1}
+    .footer-top{max-width:1100px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:10px;cursor:pointer;text-decoration:none}
+    .footer-tagline{color:var(--text-muted);font-size:14px;line-height:1.7}
+    .footer-col h4{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul li a{color:var(--text-muted);font-size:14px;text-decoration:none;cursor:pointer;transition:color .2s}
+    .footer-col ul li a:hover{color:#fff}
+    .contact-item{color:var(--text-muted);font-size:14px;margin-bottom:8px}
+    .socials{display:flex;gap:16px;margin-top:20px}
+    .socials a{color:var(--text-muted);transition:color .2s;cursor:pointer;text-decoration:none}
+    .socials a:hover{color:#fff}
+    .footer-bottom{max-width:1100px;margin:0 auto;text-align:center;padding-top:24px}
+    .footer-bottom p{color:var(--text-muted);font-size:12px}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}#footer{padding:48px 20px 24px}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+    .modal-overlay.open{opacity:1;pointer-events:auto}
+    .modal-box{background:rgba(8,16,63,0.96);border:1px solid rgba(255,90,87,0.2);border-radius:20px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateY(30px) scale(0.97);transition:transform 0.4s cubic-bezier(.22,1,.36,1)}
+    .modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+    .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text-muted);font-size:28px;cursor:pointer;line-height:1;transition:color .2s}
+    .modal-close:hover{color:#fff}
+    .modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:28px;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .field-group{margin-bottom:18px}
+    .field-group label{display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:6px}
+    .field-group input,.field-group select,.field-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,90,87,0.15);border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;box-sizing:border-box}
+    .field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:rgba(255,90,87,0.5)}
+    .field-group select option{background:#08103F}
+    .field-group textarea{resize:vertical}
+    .field-group input::placeholder,.field-group textarea::placeholder{color:var(--text-muted)}
+    .btn-submit{width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:16px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;transition:box-shadow .3s,opacity .3s;margin-top:8px}
+    .btn-submit:hover{box-shadow:0 0 40px rgba(255,90,87,0.4)}
+    .btn-submit:disabled{opacity:.6;cursor:not-allowed}
+    .form-error{color:#ff6b6b;font-size:13px;margin-bottom:12px}
+    .form-success{text-align:center;padding:20px 0}
+    .success-icon{font-size:48px;color:#4caf50;margin-bottom:16px}
+    .form-success p{color:var(--text-muted);font-size:15px;line-height:1.7}
+    /* VIBER FLOAT */
+    #viber-float{display:none;position:fixed;bottom:84px;right:20px;z-index:500;width:58px;height:58px;border-radius:50%;background:#7360F2;box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 0 rgba(115,96,242,0.4);align-items:center;justify-content:center;text-decoration:none;animation:viberPulse 2.4s infinite}
+    #viber-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(115,96,242,0.75);animation:none}
+    @keyframes viberPulse{0%,100%{box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 0 rgba(115,96,242,0.35)}60%{box-shadow:0 4px 20px rgba(115,96,242,0.55),0 0 0 14px rgba(115,96,242,0)}}
+    @media(max-width:860px){#viber-float{display:flex}body{padding-bottom:52px}}
+    /* MOBILE CALL BAR */
+    .mobile-call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:499;height:52px;background:linear-gradient(135deg,var(--c1),var(--c2));text-decoration:none;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:14px;font-weight:700}
+    @media(max-width:860px){.mobile-call-bar{display:flex}}
+    /* STAR FIELD HERO */
+    .star-field-hero{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+    @keyframes twinkle{from{opacity:var(--star-opacity,0.6)}to{opacity:0.05}}
+    @media(max-width:480px){.subpage-hero .hero-btns{flex-direction:column;align-items:center}.step-content{margin-left:56px}.step-dot{width:38px;height:38px;font-size:11px}.modal-box{padding:24px 18px}}
+  </style>
+</head>
+<body>
+  <canvas id="cinematic-canvas"></canvas>
+  <div id="vignette"></div>
+  <div id="radial-light"></div>
+  <div id="energy-pulse"></div>
+  <div id="scene-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo gradient-text">VELSHIFT</a>
+    <div class="nav-links">
+      <a href="../index.html" data-t="nav-home">Начало</a>
+      <a href="../index.html#services" class="nav-active" data-t="nav-services">Услуги</a>
+      <a href="../portfolio.html" data-t="nav-portfolio">Портфолио</a>
+      <a href="../about.html">За нас</a>
+      <a href="../pricing.html">Цени</a>
+      <button class="btn-quote" onclick="openModal()" data-t="nav-quote">Запитване</button>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-bg" onclick="setLang('bg')">БГ</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../index.html" onclick="closeMenu()" data-t="nav-home">Начало</a>
+    <a href="../index.html#services" onclick="closeMenu()" data-t="nav-services">Услуги</a>
+    <a href="../portfolio.html" onclick="closeMenu()" data-t="nav-portfolio">Портфолио</a>
+    <a href="../about.html" onclick="closeMenu()">За нас</a>
+    <a href="../pricing.html" onclick="closeMenu()">Цени</a>
+    <div class="lang-switcher" style="margin-top:10px;align-self:flex-start">
+      <button class="lang-btn active" id="btn-bg-m" onclick="setLang('bg')">БГ</button>
+      <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="btn-quote" style="margin-top:8px" onclick="closeMenu();openModal()" data-t="nav-quote">Запитване</button>
+  </div>
+
+  <!-- HERO -->
+  <section class="subpage-hero">
+    <div class="breadcrumb">
+      <a href="../index.html" data-t="nav-home">Начало</a><span class="sep">→</span>
+      <a href="../index.html#services" data-t="nav-services">Услуги</a><span class="sep">→</span>
+      <span class="gradient-text" data-t="page-name">Лендинг Страници</span>
+    </div>
+    <h1 data-t="hero-h1">Лендинг<br><span class="gradient-text">Страници</span></h1>
+    <p class="hero-sub" data-t="hero-sub">Една страница, една цел — максимум конверсии. Изграждаме лендинги, които превръщат трафика от реклами в реални клиенти и запитвания.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openModal()" data-t="hero-btn1">Започни Проект</button>
+      <a href="#examples" class="btn-outline" data-t="hero-btn2">Виж Примери</a>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section style="padding:100px 40px;position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="del-title">Какво <span class="gradient-text">Получаваш</span></h2>
+      <p class="reveal stagger-1" data-t="del-sub">Всичко необходимо за лендинг, който конвертира.</p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="glass-card deliverable-card reveal stagger-1">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF5A57"/><stop offset="100%" stop-color="#E02F75"/></linearGradient></defs><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <h3 data-t="d1-title">Конверсионен Копирайтинг</h3>
+        <p data-t="d1-p">Пишем текст, който продава — headline-и, които хващат вниманието, и CTA-та, които карат посетителите да действат. На български, за българската аудитория.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-2">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01" stroke-width="2"/></svg>
+        <h3 data-t="d2-title">Mobile-First Дизайн</h3>
+        <p data-t="d2-p">Повечето кликове от реклами идват от телефон. Лендингът ти е проектиран мобилно-първо — бърз, четим и с ясен път към действие.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-3">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <h3 data-t="d3-title">A/B Тестване</h3>
+        <p data-t="d3-p">Създаваме две версии на ключови елементи (заглавие, CTA, визия) и тестваме коя работи по-добре. Решения, базирани на данни, не на интуиция.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-4">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/><path d="M12 16V8"/></svg>
+        <h3 data-t="d4-title">Pixel &amp; Analytics Интеграция</h3>
+        <p data-t="d4-p">Facebook Pixel, Google Analytics, UTM тракинг — всичко е свързано, за да знаеш точно колко струва всеки лийд и коя реклама носи резултати.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-5">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3 data-t="d5-title">Зареждане под 1.5 секунди</h3>
+        <p data-t="d5-p">Бавен лендинг = загубени пари за реклама. Оптимизираме до кост — минимум код, максимум скорост, перфектен Google PageSpeed резултат.</p>
+      </div>
+      <div class="glass-card deliverable-card reveal stagger-6">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <h3 data-t="d6-title">Лийд Форма + Нотификации</h3>
+        <p data-t="d6-p">Всяко запитване отива директно на имейла ти или в Telegram/Viber. Без забавяне — реагираш веднага, докато клиентът е горещ.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="proc-title">Как Изграждаме<br><span class="gradient-text">Лендинг Страница</span></h2>
+    </div>
+    <div class="process-wrap">
+      <div class="timeline-line"></div>
+      <div class="process-step reveal">
+        <div class="step-dot">01</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s1-title">Анализ на Офертата</h3>
+          <p data-t="s1-p">Разбираме какво продаваш, на кого и защо клиентът трябва да избере теб. Дефинираме едно ясно действие, което искаме от посетителя.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-1">
+        <div class="step-dot">02</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s2-title">Копирайтинг &amp; Структура</h3>
+          <p data-t="s2-p">Пишем headline, подзаглавия, social proof блокове и CTA секции. Структурираме страницата по доказана формула: AIDA или PAS.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-2">
+        <div class="step-dot">03</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s3-title">Дизайн &amp; Разработка</h3>
+          <p data-t="s3-p">Визуализираме текста с дизайн, който фокусира вниманието. Кодираме с чист HTML/CSS за максимална скорост и конвертираме.</p>
+        </div></div>
+      </div>
+      <div class="process-step reveal stagger-3">
+        <div class="step-dot">04</div>
+        <div class="step-content"><div class="step-box glass-card">
+          <h3 data-t="s4-title">Тракинг &amp; Оптимизация</h3>
+          <p data-t="s4-p">Свързваме pixel-и, analytics и A/B тестове. Следим първите резултати и оптимизираме елементите, които не конвертират достатъчно.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="price-title">Избери <span class="gradient-text">Пакет</span></h2>
+      <p class="reveal stagger-1" data-t="price-sub">Три нива, съобразени с различни нужди и бюджети.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="glass-card pricing-card reveal">
+        <h3 data-t="p1-name">Basic</h3>
+        <div class="pricing-price gradient-text" data-t="p1-price">250€</div>
+        <p class="pricing-desc" data-t="p1-desc">Бърз лендинг за тестване на оферта.</p>
+        <ul class="pricing-features">
+          <li data-t="p1-f1">1 страница, мобилно адаптивна</li>
+          <li data-t="p1-f2">Контактна форма</li>
+          <li data-t="p1-f3">Базов копирайтинг</li>
+          <li data-t="p1-f4">2 ревизии</li>
+          <li data-t="p1-f5">Срок: 3-5 дни</li>
+        </ul>
+        <button class="btn-outline" onclick="openModal()" data-t="p1-btn">Избери Basic</button>
+      </div>
+      <div class="glass-card pricing-card featured reveal stagger-1">
+        <span class="pricing-badge" data-t="badge-popular">Най-популярен</span>
+        <h3 data-t="p2-name">Pro</h3>
+        <div class="pricing-price gradient-text" data-t="p2-price">450€</div>
+        <p class="pricing-desc" data-t="p2-desc">Лендинг, оптимизиран за реклами.</p>
+        <ul class="pricing-features">
+          <li data-t="p2-f1">A/B тестван копирайтинг</li>
+          <li data-t="p2-f2">Google Analytics + Facebook Pixel</li>
+          <li data-t="p2-f3">UTM тракинг интеграция</li>
+          <li data-t="p2-f4">Оптимизиран за скорост</li>
+          <li data-t="p2-f5">3 ревизии</li>
+          <li data-t="p2-f6">Срок: 5-7 дни</li>
+        </ul>
+        <button class="btn-primary" onclick="openModal()" data-t="p2-btn">Избери Pro</button>
+      </div>
+      <div class="glass-card pricing-card reveal stagger-2">
+        <h3 data-t="p3-name">Premium</h3>
+        <div class="pricing-price gradient-text" data-t="p3-price">800€</div>
+        <p class="pricing-desc" data-t="p3-desc">Пълна фуния за максимален ROI.</p>
+        <ul class="pricing-features">
+          <li data-t="p3-f1">Landing + Thank You страница</li>
+          <li data-t="p3-f2">Email sequence setup (3-5 имейла)</li>
+          <li data-t="p3-f3">Пълна pixel + conversion тракинг</li>
+          <li data-t="p3-f4">Heatmap анализ</li>
+          <li data-t="p3-f5">Приоритетна поддръжка</li>
+          <li data-t="p3-f6">Срок: 7-10 дни</li>
+        </ul>
+        <button class="btn-outline" onclick="openModal()" data-t="p3-btn">Избери Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="grad-line" style="max-width:700px;margin:0 auto;position:relative;z-index:1"></div>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq" style="position:relative;z-index:1">
+    <div class="section-header">
+      <h2 class="reveal" data-t="faq-title">Често Задавани <span class="gradient-text">Въпроси</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" data-t="faq-q1">Каква е разликата между лендинг и обикновен сайт?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a1">Лендингът има една цел — да конвертира посетителя (обаждане, форма, покупка). Няма навигация, няма разсейващи елементи. Обикновеният сайт информира, лендингът продава.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-1">
+        <button class="faq-q" data-t="faq-q2">Колко конверсия мога да очаквам?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a2">Зависи от индустрията и трафика, но добър лендинг конвертира 5-15% от посетителите. За сравнение — средната уеб страница конвертира 1-3%.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-2">
+        <button class="faq-q" data-t="faq-q3">Трябва ли вече да имам реклами?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a3">Не е задължително, но лендингът работи най-добре с платен трафик (Facebook/Instagram/Google Ads). Ако нямаш реклами, виж нашата услуга <a href="digital-ads.html" style="color:var(--c1)">Дигитална Реклама</a>.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-3">
+        <button class="faq-q" data-t="faq-q4">Мога ли да сменя текста след време?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a4">Разбира се. Лендингът е твоя собственост. При Pro и Premium пакетите настройваме лесен начин за промяна на текстове без технически знания.</p></div>
+      </div>
+      <div class="faq-item reveal stagger-4">
+        <button class="faq-q" data-t="faq-q5">Какво е A/B тестване?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p data-t="faq-a5">Показваме на 50% от посетителите версия А, на другите 50% — версия Б. Измерваме коя конвертира повече и оставяме победителя. Така непрекъснато подобряваме резултатите.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="position:relative;z-index:1">
+    <div class="grad-line" style="max-width:700px;margin:0 auto 60px"></div>
+    <div class="cta-content">
+      <h2 class="reveal" data-t="cta-h2">Спри да губиш бюджет<br><span class="gradient-text">за реклами без лендинг</span></h2>
+      <p class="reveal stagger-1" data-t="cta-p">Всяка реклама без добър лендинг е изхвърлени пари.</p>
+      <div class="reveal stagger-2"><button class="btn-cta" onclick="openModal()" data-t="cta-btn">Създай Лендинг Сега</button></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="grad-line" style="margin-bottom:56px"></div>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-logo gradient-text">VELSHIFT</a>
+          <p class="footer-tagline" data-t="foot-tag">Ние не правим сайтове.<br>Ние изграждаме растеж.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-srv-h">Услуги</h4>
+          <ul>
+            <li><a href="web-design.html">Уеб Дизайн &amp; UI/UX</a></li>
+            <li><a href="landing-pages.html">Лендинг Страници</a></li>
+            <li><a href="ecommerce.html">Онлайн Магазини</a></li>
+            <li><a href="digital-ads.html">Дигитална Реклама</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-nav-h">Навигация</h4>
+          <ul>
+            <li><a href="../index.html">Начало</a></li>
+            <li><a href="../portfolio.html">Портфолио</a></li>
+            <li><a href="../about.html">За нас</a></li>
+            <li><a href="../contact.html">Контакт</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-t="foot-con-h">Контакт</h4>
+          <p class="contact-item">hello@velshift.com</p>
+          <p class="contact-item">+359 877 602 204</p>
+          <p class="contact-item" data-t="foot-city">София, България</p>
+          <div class="socials">
+            <a href="javascript:void(0)" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="javascript:void(0)" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="javascript:void(0)" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="grad-line"></div>
+      <div class="footer-bottom" style="padding-top:20px"><p data-t="copyright">&copy; 2026 Velshift. Всички права запазени.</p></div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="modal-overlay" onclick="handleModalOverlayClick(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Затвори">&times;</button>
+      <h2 class="modal-title">Запитване / Inquiry</h2>
+      <form id="modalForm">
+        <div id="form-fields">
+          <div class="field-group"><label>Име / Name *</label><input type="text" name="name" required placeholder="Вашето име / Your name"></div>
+          <div class="field-group"><label>Имейл / Email *</label><input type="email" name="email" required placeholder="you@example.com"></div>
+          <div class="field-group"><label>Телефон / Phone</label><input type="tel" name="phone" placeholder="+359 88 ..."></div>
+          <div class="field-group"><label>Услуга / Service *</label>
+            <select name="service" required>
+              <option value="">-- Избери / Select --</option>
+              <option>Уеб Дизайн &amp; UI/UX</option>
+              <option selected>Лендинг Страница</option>
+              <option>Онлайн Магазин</option>
+              <option>Дигитална Реклама</option>
+              <option>Не съм сигурен / Not sure</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Бюджет / Budget</label>
+            <select name="budget">
+              <option value="">-- Избери / Select --</option>
+              <option>До 300€</option>
+              <option>300€ – 600€</option>
+              <option>600€ – 1000€</option>
+              <option>1000€+</option>
+              <option>Ще обсъдим / Let's discuss</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Описание / Description</label><textarea name="description" style="min-height:90px" placeholder="Разкажи ни за проекта си / Tell us about your project"></textarea></div>
+          <div id="form-error" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn-submit" id="btn-submit">Изпрати Запитване / Send Inquiry</button>
+        </div>
+        <div id="form-success" class="form-success" style="display:none">
+          <div class="success-icon">✓</div>
+          <p>Получихме запитването ти! Ще се свържем до 48 часа.<br>We received your inquiry! We'll be in touch within 48 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIBER FLOAT -->
+  <a id="viber-float" href="viber://chat?number=%2B359877602204" aria-label="Viber">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M24.3 4.2c-4.5.1-14.6 1.4-17.8 7.7C4.4 15.5 4 20.1 4 24.8c0 4.7.4 9.3 2.5 12.9v6.6c0 .7.5 1.1 1 1.1.2 0 .4-.1.6-.2l5.5-3.3c1.8.5 3.8.8 5.9.9h.5c8.7 0 17.6-4.7 19.5-14.2.5-2.4.5-4.9.3-7.4C38.8 10.4 31.6 4.5 24.3 4.2z"/><path d="M33.6 28.2c-.2-.4-1.4-.8-1.4-.8s-3.3-1.5-4.3-2c-.4-.2-.8-.2-1.1.2-.6.8-1.3 1.7-1.7 2.1-.3.3-.6.3-1 .1-2.3-1-4.2-2.5-5.7-4.4-.4-.5-.3-.8.1-1.2.4-.3.8-.8 1.1-1.2.3-.4.2-.8 0-1.1-.3-.6-1.5-3.6-1.9-4.6-.3-.7-.7-.7-1-.7h-.9c-.4 0-1 .1-1.5.7-.6.6-2 2-2 4.7s2 5.5 2.3 5.8c.3.4 4 6.5 9.9 8.8 3.6 1.4 5 1.1 5.9.9 1.3-.3 3-1.3 3.4-2.6.4-1.3.4-2.3.3-2.6z" fill="#7360F2"/><path d="M29.4 13.4c-1.5-.8-3.2-1.3-5-1.4-.4 0-.7.3-.7.7s.3.7.7.7c1.5.1 3 .5 4.3 1.2 2.1 1.1 3.6 2.9 4.3 5.1.3.9.4 1.9.4 2.9 0 .4.3.7.7.7s.7-.3.7-.7c0-1.1-.2-2.3-.5-3.4-.9-2.5-2.7-4.7-4.9-5.8z" fill="#7360F2"/><path d="M27.8 16.4c-1-.5-2.2-.8-3.4-.9-.4 0-.7.3-.7.7s.3.7.7.7c1 .1 2 .3 2.8.7 1.3.7 2.2 1.8 2.6 3.2.2.5.2 1.1.2 1.7 0 .4.3.7.7.7s.7-.3.7-.7c0-.8-.1-1.5-.3-2.2-.6-1.8-1.8-3.2-3.3-3.9z" fill="#7360F2"/><path d="M26.2 19.5c-.6-.3-1.3-.5-2-.5-.4 0-.7.3-.7.7s.3.7.7.7c.5 0 1 .1 1.4.4.6.3 1 .8 1.2 1.5.1.3.1.5.1.8 0 .4.3.7.7.7s.7-.3.7-.7c0-.5-.1-.9-.2-1.3-.3-1-.9-1.8-1.9-2.3z" fill="#7360F2"/></svg>
+  </a>
+
+  <!-- MOBILE CALL BAR -->
+  <a class="mobile-call-bar" href="tel:+359877602204">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+    Обадете се сега — +359 877 602 204
+  </a>
+
+  <script>
+    // ── SUPABASE ──
+    const SUPABASE_URL = 'https://pwcligmumjaufmrwhnch.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2xpZ211bWphdWZtcndobmNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1Mjg5MjUsImV4cCI6MjA5NDEwNDkyNX0.0qdLQplSoBqjR2hWXGIn_fXQ5taw2pa6ctqobObC3-I';
+    let _sb = null;
+    function getSB() { if (!_sb) { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'; document.head.appendChild(s); return new Promise(r => s.onload = () => { _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); r(_sb) }) } return Promise.resolve(_sb); }
+
+    // ── TRANSLATIONS ──
+    const translations = {
+      bg: {
+        'nav-home':'Начало','nav-services':'Услуги','nav-portfolio':'Портфолио','nav-contact':'Контакт','nav-quote':'Запитване',
+        'page-name':'Лендинг Страници',
+        'hero-h1':'Лендинг<br><span class="gradient-text">Страници</span>',
+        'hero-sub':'Една страница, една цел — максимум конверсии. Изграждаме лендинги, които превръщат трафика от реклами в реални клиенти и запитвания.',
+        'hero-btn1':'Започни Проект','hero-btn2':'Виж Примери',
+        'del-title':'Какво <span class="gradient-text">Получаваш</span>','del-sub':'Всичко необходимо за лендинг, който конвертира.',
+        'd1-title':'Конверсионен Копирайтинг','d1-p':'Пишем текст, който продава — headline-и, които хващат вниманието, и CTA-та, които карат посетителите да действат. На български, за българската аудитория.',
+        'd2-title':'Mobile-First Дизайн','d2-p':'Повечето кликове от реклами идват от телефон. Лендингът ти е проектиран мобилно-първо — бърз, четим и с ясен път към действие.',
+        'd3-title':'A/B Тестване','d3-p':'Създаваме две версии на ключови елементи (заглавие, CTA, визия) и тестваме коя работи по-добре. Решения, базирани на данни, не на интуиция.',
+        'd4-title':'Pixel & Analytics Интеграция','d4-p':'Facebook Pixel, Google Analytics, UTM тракинг — всичко е свързано, за да знаеш точно колко струва всеки лийд и коя реклама носи резултати.',
+        'd5-title':'Зареждане под 1.5 секунди','d5-p':'Бавен лендинг = загубени пари за реклама. Оптимизираме до кост — минимум код, максимум скорост, перфектен Google PageSpeed резултат.',
+        'd6-title':'Лийд Форма + Нотификации','d6-p':'Всяко запитване отива директно на имейла ти или в Telegram/Viber. Без забавяне — реагираш веднага, докато клиентът е горещ.',
+        'proc-title':'Как Изграждаме<br><span class="gradient-text">Лендинг Страница</span>',
+        's1-title':'Анализ на Офертата','s1-p':'Разбираме какво продаваш, на кого и защо клиентът трябва да избере теб. Дефинираме едно ясно действие, което искаме от посетителя.',
+        's2-title':'Копирайтинг & Структура','s2-p':'Пишем headline, подзаглавия, social proof блокове и CTA секции. Структурираме страницата по доказана формула: AIDA или PAS.',
+        's3-title':'Дизайн & Разработка','s3-p':'Визуализираме текста с дизайн, който фокусира вниманието. Кодираме с чист HTML/CSS за максимална скорост и конвертираме.',
+        's4-title':'Тракинг & Оптимизация','s4-p':'Свързваме pixel-и, analytics и A/B тестове. Следим първите резултати и оптимизираме елементите, които не конвертират достатъчно.',
+        'price-title':'Избери <span class="gradient-text">Пакет</span>','price-sub':'Три нива, съобразени с различни нужди и бюджети.',
+        'badge-popular':'Най-популярен',
+        'p1-name':'Basic','p1-price':'250€','p1-desc':'Бърз лендинг за тестване на оферта.','p1-f1':'1 страница, мобилно адаптивна','p1-f2':'Контактна форма','p1-f3':'Базов копирайтинг','p1-f4':'2 ревизии','p1-f5':'Срок: 3-5 дни','p1-btn':'Избери Basic',
+        'p2-name':'Pro','p2-price':'450€','p2-desc':'Лендинг, оптимизиран за реклами.','p2-f1':'A/B тестван копирайтинг','p2-f2':'Google Analytics + Facebook Pixel','p2-f3':'UTM тракинг интеграция','p2-f4':'Оптимизиран за скорост','p2-f5':'3 ревизии','p2-f6':'Срок: 5-7 дни','p2-btn':'Избери Pro',
+        'p3-name':'Premium','p3-price':'800€','p3-desc':'Пълна фуния за максимален ROI.','p3-f1':'Landing + Thank You страница','p3-f2':'Email sequence setup (3-5 имейла)','p3-f3':'Пълна pixel + conversion тракинг','p3-f4':'Heatmap анализ','p3-f5':'Приоритетна поддръжка','p3-f6':'Срок: 7-10 дни','p3-btn':'Избери Premium',
+        'faq-title':'Често Задавани <span class="gradient-text">Въпроси</span>',
+        'faq-q1':'Каква е разликата между лендинг и обикновен сайт?','faq-a1':'Лендингът има една цел — да конвертира посетителя (обаждане, форма, покупка). Няма навигация, няма разсейващи елементи. Обикновеният сайт информира, лендингът продава.',
+        'faq-q2':'Колко конверсия мога да очаквам?','faq-a2':'Зависи от индустрията и трафика, но добър лендинг конвертира 5-15% от посетителите. За сравнение — средната уеб страница конвертира 1-3%.',
+        'faq-q3':'Трябва ли вече да имам реклами?','faq-a3':'Не е задължително, но лендингът работи най-добре с платен трафик (Facebook/Instagram/Google Ads). Ако нямаш реклами, виж нашата услуга Дигитална Реклама.',
+        'faq-q4':'Мога ли да сменя текста след време?','faq-a4':'Разбира се. Лендингът е твоя собственост. При Pro и Premium пакетите настройваме лесен начин за промяна на текстове без технически знания.',
+        'faq-q5':'Какво е A/B тестване?','faq-a5':'Показваме на 50% от посетителите версия А, на другите 50% — версия Б. Измерваме коя конвертира повече и оставяме победителя. Така непрекъснато подобряваме резултатите.',
+        'cta-h2':'Спри да губиш бюджет<br><span class="gradient-text">за реклами без лендинг</span>',
+        'cta-p':'Всяка реклама без добър лендинг е изхвърлени пари.','cta-btn':'Създай Лендинг Сега',
+        'foot-tag':'Ние не правим сайтове.<br>Ние изграждаме растеж.','foot-srv-h':'Услуги','foot-nav-h':'Навигация','foot-con-h':'Контакт','foot-city':'София, България','copyright':'© 2026 Velshift. Всички права запазени.'
+      },
+      en: {
+        'nav-home':'Home','nav-services':'Services','nav-portfolio':'Portfolio','nav-contact':'Contact','nav-quote':'Get a Quote',
+        'page-name':'Landing Pages',
+        'hero-h1':'Landing<br><span class="gradient-text">Pages</span>',
+        'hero-sub':'One page, one goal — maximum conversions. We build landing pages that turn ad traffic into real clients and inquiries.',
+        'hero-btn1':'Start Project','hero-btn2':'View Examples',
+        'del-title':'What You <span class="gradient-text">Get</span>','del-sub':'Everything you need for a landing page that converts.',
+        'd1-title':'Conversion Copywriting','d1-p':'We write text that sells — headlines that grab attention and CTAs that make visitors act. In Bulgarian, for the Bulgarian audience.',
+        'd2-title':'Mobile-First Design','d2-p':'Most ad clicks come from mobile. Your landing page is designed mobile-first — fast, readable and with a clear path to action.',
+        'd3-title':'A/B Testing','d3-p':'We create two versions of key elements (headline, CTA, visual) and test which performs better. Data-driven decisions, not intuition.',
+        'd4-title':'Pixel & Analytics Integration','d4-p':'Facebook Pixel, Google Analytics, UTM tracking — all connected so you know exactly what each lead costs and which ad delivers results.',
+        'd5-title':'Load Under 1.5 Seconds','d5-p':'Slow landing page = wasted ad spend. We optimise to the bone — minimum code, maximum speed, perfect Google PageSpeed score.',
+        'd6-title':'Lead Form + Notifications','d6-p':'Every inquiry goes directly to your email or Telegram/Viber. No delay — you respond instantly while the client is still hot.',
+        'proc-title':'How We Build<br><span class="gradient-text">a Landing Page</span>',
+        's1-title':'Offer Analysis','s1-p':'We understand what you sell, to whom and why the client should choose you. We define one clear action we want from the visitor.',
+        's2-title':'Copywriting & Structure','s2-p':'We write the headline, subheadings, social proof blocks and CTA sections. We structure the page using a proven formula: AIDA or PAS.',
+        's3-title':'Design & Development','s3-p':'We visualise the text with design that focuses attention. We code with clean HTML/CSS for maximum speed and conversion.',
+        's4-title':'Tracking & Optimisation','s4-p':'We connect pixels, analytics and A/B tests. We monitor initial results and optimise elements that are not converting enough.',
+        'price-title':'Choose a <span class="gradient-text">Package</span>','price-sub':'Three tiers tailored to different needs and budgets.',
+        'badge-popular':'Most Popular',
+        'p1-name':'Basic','p1-price':'250€','p1-desc':'Quick landing page to test an offer.','p1-f1':'1 page, mobile responsive','p1-f2':'Contact form','p1-f3':'Basic copywriting','p1-f4':'2 revisions','p1-f5':'Timeline: 3-5 days','p1-btn':'Choose Basic',
+        'p2-name':'Pro','p2-price':'450€','p2-desc':'Landing page optimised for ads.','p2-f1':'A/B tested copywriting','p2-f2':'Google Analytics + Facebook Pixel','p2-f3':'UTM tracking integration','p2-f4':'Speed optimised','p2-f5':'3 revisions','p2-f6':'Timeline: 5-7 days','p2-btn':'Choose Pro',
+        'p3-name':'Premium','p3-price':'800€','p3-desc':'Full funnel for maximum ROI.','p3-f1':'Landing + Thank You page','p3-f2':'Email sequence setup (3-5 emails)','p3-f3':'Full pixel + conversion tracking','p3-f4':'Heatmap analysis','p3-f5':'Priority support','p3-f6':'Timeline: 7-10 days','p3-btn':'Choose Premium',
+        'faq-title':'Frequently Asked <span class="gradient-text">Questions</span>',
+        'faq-q1':'What is the difference between a landing page and a regular site?','faq-a1':'A landing page has one goal — to convert the visitor (call, form, purchase). No navigation, no distracting elements. A regular site informs; a landing page sells.',
+        'faq-q2':'How much conversion can I expect?','faq-a2':'Depends on the industry and traffic, but a good landing page converts 5-15% of visitors. For comparison — the average web page converts 1-3%.',
+        'faq-q3':'Do I already need to have ads?','faq-a3':'Not mandatory, but a landing page works best with paid traffic (Facebook/Instagram/Google Ads). If you don\'t have ads yet, see our Digital Advertising service.',
+        'faq-q4':'Can I change the text later?','faq-a4':'Of course. The landing page is your property. With Pro and Premium packages we set up an easy way to change text without technical knowledge.',
+        'faq-q5':'What is A/B testing?','faq-a5':'We show version A to 50% of visitors, version B to the other 50%. We measure which converts more and keep the winner. This way we continuously improve results.',
+        'cta-h2':'Stop wasting budget<br><span class="gradient-text">on ads without a landing page</span>',
+        'cta-p':'Every ad without a good landing page is wasted money.','cta-btn':'Create Landing Page Now',
+        'foot-tag':"We don't build websites.<br>We build growth.",'foot-srv-h':'Services','foot-nav-h':'Navigation','foot-con-h':'Contact','foot-city':'Sofia, Bulgaria','copyright':'© 2026 Velshift. All rights reserved.'
+      }
+    };
+    let currentLang = 'bg';
+    function setLang(l) {
+      currentLang = l;
+      document.documentElement.lang = l;
+      const t = translations[l];
+      document.querySelectorAll('[data-t]').forEach(e => { const k = e.dataset.t; if (t[k] !== undefined) e.innerHTML = t[k] });
+      ['btn-bg','btn-bg-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'bg') });
+      ['btn-en','btn-en-m'].forEach(i => { const b = document.getElementById(i); if (b) b.classList.toggle('active', l === 'en') });
+    }
+    function scrollToSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }) }
+    function openModal() { document.getElementById('contact-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = ''; }
+    function handleModalOverlayClick(e) { if (e.target === document.getElementById('contact-modal')) closeModal(); }
+    function closeMenu() { const mm = document.getElementById('mobile-menu'); const hb = document.getElementById('hamburger'); if (mm) mm.classList.remove('open'); if (hb) hb.classList.remove('open'); }
+
+    // ── NAVBAR & MOBILE MENU ──
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60) }, { passive: true });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    });
+    function updateMenuTop() { const nav = document.getElementById('navbar'); const mm = document.getElementById('mobile-menu'); if (nav && mm) mm.style.top = nav.offsetHeight + 'px'; }
+    updateMenuTop();
+    window.addEventListener('resize', updateMenuTop, { passive: true });
+    window.addEventListener('scroll', updateMenuTop, { passive: true });
+
+    // ── PROGRESS BAR ──
+    const pBar = document.getElementById('scene-progress');
+    window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; pBar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%' }, { passive: true });
+
+    // ── REVEAL ON SCROLL ──
+    const obs = new IntersectionObserver(en => { en.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); e.target.querySelectorAll('[data-count]').forEach(animC) } }) }, { threshold: .05, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+    function animC(el) { if (el._d) return; el._d = 1; const tg = +el.dataset.count, sf = el.dataset.suffix || '', dur = 2200, t0 = performance.now(); const st = n => { const p = Math.min((n - t0) / dur, 1); el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * tg) + sf; if (p < 1) requestAnimationFrame(st) }; requestAnimationFrame(st) }
+
+    // ── GLASS CARD LIGHT FOLLOW + 3D TILT ──
+    document.querySelectorAll('.glass-card').forEach(c => {
+      c.addEventListener('mousemove', e => {
+        const r = c.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', (x * 100) + '%');
+        c.style.setProperty('--my', (y * 100) + '%');
+        const rx = x - .5, ry = y - .5;
+        c.style.transform = `perspective(800px) rotateY(${rx * 6}deg) rotateX(${-ry * 6}deg) translateY(-8px) scale(1.015)`;
+      }, { passive: true });
+      c.addEventListener('mouseleave', () => { c.style.transform = '' }, { passive: true });
+    });
+
+    // ── MAGNETIC BUTTONS ──
+    if (!isMobile) {
+      document.querySelectorAll('.btn-primary,.btn-outline,.btn-cta,.btn-quote').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${x * .15}px,${y * .15}px) scale(1.04)`;
+        }, { passive: true });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = '' }, { passive: true });
+      });
+    }
+
+    // ── FAQ ACCORDION ──
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // ── MODAL FORM SUBMIT ──
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
+    const _mf = document.getElementById('modalForm');
+    if (_mf) _mf.addEventListener('submit', handleFormSubmit);
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      const errEl = document.getElementById('form-error');
+      const form = e.target;
+      btn.disabled = true; errEl.style.display = 'none';
+      const data = { name: form.name.value.trim(), email: form.email.value.trim(), phone: form.phone.value.trim() || null, service: form.service.value, budget: form.budget.value || null, description: form.description.value.trim() || null };
+      try {
+        const sb = await getSB();
+        const { error } = await sb.from('inquiries').insert([data]);
+        if (error) throw error;
+        document.getElementById('form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } catch (err) {
+        errEl.textContent = 'Грешка при изпращане. Моля, опитайте отново. / Error sending. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+      }
+    }
+
+    // ══════════════════════════════════════════════
+    // ── CINEMATIC THREE.JS ENGINE ──
+    // ══════════════════════════════════════════════
+    (function () {
+      const canvas = document.getElementById('cinematic-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+      renderer.setClearColor(0x030918, 1);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1));
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x030918, 0.018);
+      const camera = new THREE.PerspectiveCamera(62, 1, 0.1, 300);
+      camera.position.set(0, 0, 14);
+      function resize() { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix() }
+      resize(); window.addEventListener('resize', resize, { passive: true });
+
+      const isMob = innerWidth < 768;
+      const mouse3D = { x: 0, y: 0 };
+      if (!isMobile) window.addEventListener('mousemove', e => { mouse3D.x = (e.clientX / innerWidth - .5) * 2; mouse3D.y = (e.clientY / innerHeight - .5) * 2 }, { passive: true });
+
+      const phase = { particleSpread: 25, attractionForce: 0, glowIntensity: 0, cameraZ: 14, focalOpacity: 0, panelGlow: 0 };
+
+      let canvasVisible = true;
+      const visObs = new IntersectionObserver(en => { canvasVisible = en[0].isIntersecting }, { threshold: 0 });
+      visObs.observe(canvas);
+
+      const radialLight = document.getElementById('radial-light');
+
+      const nearCount = isMob ? 10 : 30, midCount = isMob ? 200 : 700, farCount = isMob ? 150 : 500;
+
+      const farGeo = new THREE.BufferGeometry(), farPos = new Float32Array(farCount * 3);
+      for (let i = 0; i < farCount; i++) { farPos[i * 3] = (Math.random() - .5) * 100; farPos[i * 3 + 1] = (Math.random() - .5) * 60; farPos[i * 3 + 2] = -30 - Math.random() * 60 }
+      farGeo.setAttribute('position', new THREE.BufferAttribute(farPos, 3));
+      const farPts = new THREE.Points(farGeo, new THREE.PointsMaterial({ size: .012, color: 0xaabbdd, transparent: true, opacity: .35, sizeAttenuation: true }));
+      scene.add(farPts);
+
+      const nearGeo = new THREE.BufferGeometry(), nearPos = new Float32Array(nearCount * 3), nearVel = new Float32Array(nearCount * 3);
+      for (let i = 0; i < nearCount; i++) {
+        nearPos[i * 3] = (Math.random() - .5) * 24; nearPos[i * 3 + 1] = (Math.random() - .5) * 16; nearPos[i * 3 + 2] = 3 + Math.random() * 5;
+        nearVel[i * 3] = (Math.random() - .5) * .003; nearVel[i * 3 + 1] = (Math.random() - .5) * .002;
+      }
+      nearGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
+      const nearPts = new THREE.Points(nearGeo, new THREE.PointsMaterial({ size: .3, color: 0xFF5A57, transparent: true, opacity: .08, sizeAttenuation: true, blending: THREE.AdditiveBlending }));
+      scene.add(nearPts);
+
+      const midGeo = new THREE.BufferGeometry();
+      const midPos = new Float32Array(midCount * 3), midOrig = new Float32Array(midCount * 3);
+      const midCol = new Float32Array(midCount * 3), midVel = new Float32Array(midCount * 3);
+      const palette = [[1, .35, .34], [.88, .18, .46], [.95, .95, 1], [.6, .25, .5]];
+      const midTarget = new Float32Array(midCount * 3);
+      for (let i = 0; i < midCount; i++) {
+        const r = phase.particleSpread * Math.cbrt(Math.random()), th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+        midPos[i * 3] = r * Math.sin(ph) * Math.cos(th); midPos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th); midPos[i * 3 + 2] = r * Math.cos(ph);
+        midOrig[i * 3] = midPos[i * 3]; midOrig[i * 3 + 1] = midPos[i * 3 + 1]; midOrig[i * 3 + 2] = midPos[i * 3 + 2];
+        midVel[i * 3] = (Math.random() - .5) * .02; midVel[i * 3 + 1] = (Math.random() - .5) * .02; midVel[i * 3 + 2] = (Math.random() - .5) * .02;
+        const st = Math.random() * Math.PI * 2, sp = Math.acos(2 * Math.random() - 1), sr = 3.2 + Math.random() * .8;
+        midTarget[i * 3] = sr * Math.sin(sp) * Math.cos(st); midTarget[i * 3 + 1] = sr * Math.sin(sp) * Math.sin(st); midTarget[i * 3 + 2] = sr * Math.cos(sp);
+        const c = palette[Math.floor(Math.random() * palette.length)];
+        midCol[i * 3] = c[0]; midCol[i * 3 + 1] = c[1]; midCol[i * 3 + 2] = c[2];
+      }
+      midGeo.setAttribute('position', new THREE.BufferAttribute(midPos, 3));
+      midGeo.setAttribute('color', new THREE.BufferAttribute(midCol, 3));
+      const midMat = new THREE.PointsMaterial({ size: .04, vertexColors: true, transparent: true, opacity: .7, sizeAttenuation: true, blending: THREE.AdditiveBlending });
+      const midPts = new THREE.Points(midGeo, midMat);
+      scene.add(midPts);
+
+      const focalGroup = new THREE.Group();
+      focalGroup.visible = false;
+      const panelGeo = new THREE.PlaneGeometry(5.2, 3.4, 1, 1);
+      const panelMat = new THREE.MeshBasicMaterial({ color: 0x0a1540, transparent: true, opacity: .35, side: THREE.DoubleSide });
+      const panel = new THREE.Mesh(panelGeo, panelMat);
+      focalGroup.add(panel);
+      const borderGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(5.2, 3.4, .02));
+      const borderMat = new THREE.LineBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .4 });
+      const border = new THREE.LineSegments(borderGeo, borderMat);
+      focalGroup.add(border);
+      for (let i = 0; i < 8; i++) {
+        const w = 1 + Math.random() * 1.8, lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-w / 2, 0, 0), new THREE.Vector3(w / 2, 0, 0)]);
+        const lm = new THREE.LineBasicMaterial({ color: i < 2 ? 0xFF5A57 : 0x334488, transparent: true, opacity: .3 + Math.random() * .2 });
+        const line = new THREE.Line(lg, lm);
+        line.position.set(-.3 + Math.random() * .6, .8 - i * .35, .02);
+        focalGroup.add(line);
+      }
+      for (let i = 0; i < 5; i++) {
+        const dg = new THREE.SphereGeometry(.04, 8, 8);
+        const dm = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: .6 });
+        const dot = new THREE.Mesh(dg, dm);
+        dot.position.set(-1.4 + i * .15, .9, .02);
+        focalGroup.add(dot);
+      }
+      const glowPlaneGeo = new THREE.PlaneGeometry(5, 3.5);
+      const glowPlaneMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, side: THREE.DoubleSide, blending: THREE.AdditiveBlending });
+      const glowPlane = new THREE.Mesh(glowPlaneGeo, glowPlaneMat);
+      glowPlane.position.z = -.3;
+      focalGroup.add(glowPlane);
+      scene.add(focalGroup);
+
+      const orbGeo = new THREE.SphereGeometry(.15, 16, 16);
+      const orbMat = new THREE.MeshBasicMaterial({ color: 0xFF5A57, transparent: true, opacity: 0, blending: THREE.AdditiveBlending });
+      const orb = new THREE.Mesh(orbGeo, orbMat);
+      scene.add(orb);
+
+      let scrollProg = 0;
+      window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - innerHeight; scrollProg = h > 0 ? scrollY / h : 0 }, { passive: true });
+
+      let t = 0, frameCount = 0;
+      const FPS = 30, FRAME_MS = 1000 / FPS;
+      let lastFrame = 0;
+      function animate(now) {
+        requestAnimationFrame(animate);
+        if (!canvasVisible) return;
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now; frameCount++; t += 0.016;
+        const af = phase.attractionForce;
+        const mP = midGeo.attributes.position.array;
+        for (let i = 0; i < midCount; i++) {
+          const i3 = i * 3;
+          if (af > 0) { const dx = midTarget[i3] - mP[i3], dy = midTarget[i3 + 1] - mP[i3 + 1], dz = midTarget[i3 + 2] - mP[i3 + 2]; mP[i3] += dx * af * .03; mP[i3 + 1] += dy * af * .03; mP[i3 + 2] += dz * af * .03; }
+          const b = Math.sin(t * .4 + i * .005) * .03 * (1 - af * .5);
+          mP[i3] += b; mP[i3 + 1] += Math.cos(t * .3 + i * .007) * .02 * (1 - af * .5);
+        }
+        if (!isMobile && af < .5) {
+          const cx = mouse3D.x * 8, cy = -mouse3D.y * 5;
+          for (let i = 0; i < 100; i++) { const i3 = i * 3, dx = mP[i3] - cx, dy = mP[i3 + 1] - cy, d = Math.sqrt(dx * dx + dy * dy); if (d < 2.5) { const f = (2.5 - d) * .015; mP[i3] += dx * f; mP[i3 + 1] += dy * f } }
+        }
+        midGeo.attributes.position.needsUpdate = true;
+        const nP = nearGeo.attributes.position.array;
+        for (let i = 0; i < nearCount; i++) {
+          nP[i * 3] += nearVel[i * 3]; nP[i * 3 + 1] += nearVel[i * 3 + 1];
+          if (Math.abs(nP[i * 3]) > 12) nearVel[i * 3] *= -1;
+          if (Math.abs(nP[i * 3 + 1]) > 8) nearVel[i * 3 + 1] *= -1;
+        }
+        nearGeo.attributes.position.needsUpdate = true;
+        if (frameCount % 6 === 0) { const fP = farGeo.attributes.position.array; for (let i = 0; i < farCount; i++) { fP[i * 3] -= .006; if (fP[i * 3] < -50) fP[i * 3] = 50 } farGeo.attributes.position.needsUpdate = true; }
+        midPts.rotation.y += .0003; midPts.rotation.x += .0001;
+        if (phase.focalOpacity > 0.01) {
+          focalGroup.visible = true;
+          panelMat.opacity = phase.focalOpacity * .35; borderMat.opacity = phase.focalOpacity * .5; glowPlaneMat.opacity = phase.panelGlow * .06;
+          focalGroup.rotation.y = Math.sin(t * .2) * .08; focalGroup.rotation.x = Math.sin(t * .15) * .008; focalGroup.position.y = Math.sin(t * .3) * .15;
+        }
+        orbMat.opacity = phase.glowIntensity * .5;
+        orb.scale.setScalar(.5 + phase.glowIntensity * 1.5 + Math.sin(t * 3) * .1);
+        orb.position.set(Math.sin(t * .5) * .3, Math.cos(t * .4) * .2, 0);
+        const oA = t * .0006, oR = isMob ? .05 : .4;
+        const shX = Math.sin(t * 4.3) * .01 + Math.sin(t * 7.1) * .005;
+        const shY = Math.cos(t * 3.7) * .008 + Math.cos(t * 6.3) * .004;
+        const tX = mouse3D.x * .5 + Math.sin(oA) * oR + shX;
+        const tY = -mouse3D.y * .35 + Math.cos(oA * .7) * oR * .4 + shY;
+        const tZ = phase.cameraZ + scrollProg * 6;
+        camera.position.x += (tX - camera.position.x) * .025;
+        camera.position.y += (tY - camera.position.y) * .025;
+        camera.position.z += (tZ - camera.position.z) * .04;
+        camera.lookAt(0, 0, 0);
+        if (frameCount % 3 === 0) radialLight.style.opacity = phase.glowIntensity;
+        renderer.render(scene, camera);
+      }
+      requestAnimationFrame(animate);
+
+      const tl = gsap.timeline({ delay: .3 });
+      tl.to(phase, { particleSpread: 15, duration: 0.5, ease: 'power2.out' });
+      tl.to(phase, { particleSpread: 10, duration: 0.4, ease: 'power1.inOut' }, '+=0');
+      tl.to(phase, { attractionForce: 1, duration: 0.9, ease: 'power2.inOut' }, '<+0.1');
+      tl.to(phase, { cameraZ: 10, duration: 1.0, ease: 'power2.inOut' }, '<');
+      tl.to(phase, { glowIntensity: .6, duration: 0.7, ease: 'power2.in' }, '<+0.3');
+      tl.to('#energy-pulse', { opacity: 1, width: 300, height: 300, duration: .3, ease: 'power4.out' }, '+=0');
+      tl.to('#energy-pulse', { opacity: 0, width: 600, height: 600, duration: .4, ease: 'power2.out' });
+      tl.to(phase, { focalOpacity: 1, duration: 0.6, ease: 'power2.out' }, '<-.1');
+      tl.to(phase, { panelGlow: 1, duration: 0.5, ease: 'power2.out' }, '<+.15');
+      tl.to(phase, { cameraZ: 12, glowIntensity: .3, duration: 1.5, ease: 'power2.inOut' }, '<');
+    })();
+
+    // ── SUBPAGE HERO GSAP ANIMATION ──
+    (function () {
+      const heroTl = gsap.timeline({ delay: 0.1 });
+      heroTl.to('#navbar', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0);
+      heroTl.to('.subpage-hero .breadcrumb', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, 0.2);
+      heroTl.to('.subpage-hero h1', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.8, ease: 'power3.out' }, 0.45);
+      heroTl.to('.subpage-hero .hero-sub', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.7, ease: 'power3.out' }, 0.65);
+      heroTl.to('.subpage-hero .hero-btns', { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.6, ease: 'power3.out' }, 0.85);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://velshift.com/sitemap.xml
+
+Disallow: /api/
