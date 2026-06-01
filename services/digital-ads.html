@@ -18,7 +18,7 @@
     :root{--c1:#FF5A57;--c2:#E02F75;--bg:#030918;--bg2:#08103F;--text-muted:#8090B8;--glass-border:rgba(255,255,255,0.08);--glass-bg:rgba(8,16,63,0.55)}
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden;cursor:none}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
     body.modal-open{overflow:hidden}
     a{color:inherit;text-decoration:none}
     #cinematic-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -27,10 +27,6 @@
     #energy-pulse{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(224,47,117,0.04) 0%,transparent 70%);z-index:1;pointer-events:none;animation:pulse-anim 4s ease-in-out infinite}
     @keyframes pulse-anim{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
     #scene-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));z-index:200;width:0;transition:width .3s}
-    .custom-cursor{position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:difference}
-    .cursor-dot{width:8px;height:8px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);transition:transform .1s}
-    .cursor-ring{width:36px;height:36px;border:1.5px solid rgba(255,255,255,0.5);border-radius:50%;transform:translate(-50%,-50%);transition:transform .15s,width .2s,height .2s,border-color .2s}
-    .cursor-ring.hovered{width:52px;height:52px;border-color:var(--c1)}
     #navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(3,9,24,0.7);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-border);opacity:0}
     .nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .nav-links{display:flex;align-items:center;gap:28px;font-size:.93rem;font-weight:500}
@@ -181,13 +177,6 @@
 <div id="energy-pulse"></div>
 <div id="scene-progress"></div>
 
-<div class="custom-cursor" id="cursor-dot-el" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999">
-  <div class="cursor-dot"></div>
-</div>
-<div class="custom-cursor" id="cursor-ring-el" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9998">
-  <div class="cursor-ring" id="cursor-ring"></div>
-</div>
-
 <nav id="navbar">
   <a href="../index.html" class="nav-logo gradient-text">VELSHIFT</a>
   <div class="nav-links">
@@ -323,7 +312,7 @@
   <div class="pricing-grid">
     <div class="glass-card pricing-card reveal">
       <h3>Basic</h3>
-      <div class="pricing-price gradient-text">150€<small data-t="price_period">/мес</small></div>
+      <div class="pricing-price gradient-text">100€<small data-t="price_period">/мес</small></div>
       <p class="pricing-desc" data-t="pr1_desc">За стартиращи рекламни кампании.</p>
       <ul class="pricing-features">
         <li data-t="pr1_f1">1 платформа (Facebook или Google)</li>
@@ -337,7 +326,7 @@
     <div class="glass-card pricing-card featured reveal stagger-1">
       <span class="pricing-badge" data-t="badge_popular">Най-популярен</span>
       <h3>Pro</h3>
-      <div class="pricing-price gradient-text">280€<small data-t="price_period">/мес</small></div>
+      <div class="pricing-price gradient-text">230€<small data-t="price_period">/мес</small></div>
       <p class="pricing-desc" data-t="pr2_desc">Сериозни кампании с A/B тестване.</p>
       <ul class="pricing-features">
         <li data-t="pr2_f1">2 платформи (Facebook + Google)</li>
@@ -350,7 +339,7 @@
     </div>
     <div class="glass-card pricing-card reveal stagger-2">
       <h3>Premium</h3>
-      <div class="pricing-price gradient-text">500€<small data-t="price_period">/мес</small></div>
+      <div class="pricing-price gradient-text">450€<small data-t="price_period">/мес</small></div>
       <p class="pricing-desc" data-t="pr3_desc">Максимален ROI с dedicated manager.</p>
       <ul class="pricing-features">
         <li data-t="pr3_f1">Всички платформи (FB, IG, Google, TikTok)</li>
@@ -746,27 +735,6 @@ window.addEventListener('scroll', () => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => io.observe(el));
-})();
-
-// ── CUSTOM CURSOR ─────────────────────────────────────────────────────────────
-(function () {
-  const dot = document.getElementById('cursor-dot-el');
-  const ring = document.getElementById('cursor-ring-el');
-  const ringEl = document.getElementById('cursor-ring');
-  if (window.matchMedia('(pointer:coarse)').matches) return;
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  document.querySelectorAll('a,button,[onclick]').forEach(el => {
-    el.addEventListener('mouseenter', () => ringEl && ringEl.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => ringEl && ringEl.classList.remove('hovered'));
-  });
-  function animCursor() {
-    if (dot) dot.style.transform = `translate(${mx}px,${my}px)`;
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-    if (ring) ring.style.transform = `translate(${rx}px,${ry}px)`;
-    requestAnimationFrame(animCursor);
-  }
-  animCursor();
 })();
 
 // ── GLASS CARD TILT ───────────────────────────────────────────────────────────
